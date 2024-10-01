@@ -7,7 +7,14 @@
         {
             "name": "Pomod'automne",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "lib/main.dart",
+        },
+        {
+            "name": "Pomod'automne (admin)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_admin.dart",
         }
     ]
 }

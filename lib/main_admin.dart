@@ -20,7 +20,7 @@ void main() async {
     useDatabaseEmulator: false,
     useScheduleManagerMock: false,
   );
-  runApp(const MyApp(isAdmistration: false));
+  runApp(const MyApp(isAdmistration: true));
 }
 
 class MyApp extends StatelessWidget {
