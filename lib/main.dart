@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
       },
       initialRoute:
           isAdmistration ? AdministrationLoginPage.route : MainPage.route,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

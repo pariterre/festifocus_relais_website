@@ -71,41 +71,32 @@ class IntroductionPage extends StatelessWidget {
                 ),
                 const TextSpan(
                     text:
-                        '), «\u00a0Coco\u00a0» car l\'événement se tient tout prêt '
-                        ' de la fête des oeufs et «\u00a048h\u00a0» pour...48 heures! '
-                        'Il s\'agit de la troisième édition de l\'événement de '
-                        'cotravail en ligne organisé par des animateurs\u00b7trices de la communauté '
-                        'de cotravailleurs\u00b7ses francophones de la plateforme Twitch!'),
+                        '), «\u00a0d\'Automne\u00a0» car l\'événement se durant cette magnifique '
+                        'saison de la citrouille et des pommes! Et finalement, «\u00a0Relais\u00a0» '
+                        'car il s\'agit d\'un événement où un ensemble d\'animateurs '
+                        'et animatrices se passent le flambeau pour animer en continu '
+                        'pendant 48\u00a0heures. Il s\'agit de la quatrième édition de l\'événement qui '
+                        'réunie la communauté francophone de cotravailleurs et '
+                        'cotravailleuses sur la plateforme Twitch!'),
               ])),
           const SizedBox(height: 12),
           const Text.rich(
               textAlign: TextAlign.justify,
               TextSpan(
                   text:
-                      'Viens découvrir des animateurs et animatrices ainsi que des communautés de '
+                      'Venez découvrir des animateurs et animatrices ainsi que des communautés de '
                       'travail merveilleuses, en plus de découvrir différentes approches de '
                       'la méthode pomodoro. Que ce soit des séances courtes (25 minutes '
                       'travail/5 minutes de pause) ou longues (50/10), strictes ou plus...laxistes(!), '
-                      'il y en aura pour toutes les personnalités, dont la tienne.')),
+                      'il y en aura pour toutes les personnalités, dont la vôtre.')),
           const SizedBox(height: 12),
           Text.rich(
               textAlign: TextAlign.justify,
               TextSpan(children: [
                 const TextSpan(
                     text:
-                        'Alors n\'hésite pas à nous joindre juste avant tes examens pour un '
-                        'blitz d\'étude ou d\'écriture! Pour les plus vieux d\'entre-vous, '
-                        'il y a un événement Facebook que vous pouvez joindre en '
-                        'guise de rappel, à l\'adresse suivante : '),
-                TextSpan(
-                  text: cm.facebookEventUrl,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.black),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () => launchUrl(Uri.parse(cm.facebookEventUrl)),
-                ),
+                        'Alors n\'hésitez pas à nous joindre juste avant tes examens pour un '
+                        'blitz d\'étude ou d\'écriture!')
               ])),
           const SizedBox(height: 50),
           const _EmailFormFIeld(),
