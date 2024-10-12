@@ -1,4 +1,3 @@
-import 'package:pomodautomne/managers/config_manager.dart';
 import 'package:pomodautomne/models/schedule_info.dart';
 
 class ScheduleManager {
@@ -15,7 +14,6 @@ class ScheduleManager {
   final eventSchedule = [
     ScheduleInfo(
         title: 'On est fébrile en attendant le début!',
-        url: ConfigManager.instance.facebookEventUrl,
         starting: DateTime(2024, 10, 24),
         length: const Duration(hours: 9, minutes: 15)),
     ScheduleInfo(
@@ -23,6 +21,120 @@ class ScheduleManager {
         url: 'https://twitch.tv/pariterre',
         starting: DateTime(2024, 10, 24, 9, 15),
         length: const Duration(minutes: 45)),
+    ScheduleInfo(
+        title: 'LaLoutreBurlesque',
+        url: 'https://twitch.tv/laloutreburlesque',
+        starting: DateTime(2024, 10, 24, 10),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 24, 13),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'Pariterre',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 24, 13, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 24, 16, 30),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'AlchimisteDesMots',
+        url: 'https://twitch.tv/alchimistedesmots',
+        starting: DateTime(2024, 10, 24, 17),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 24, 20),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'À confirmer',
+        starting: DateTime(2024, 10, 24, 20, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'POMO-TRICOT',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 24, 23, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 25, 2, 30),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'Helene_Ducrocq',
+        url: 'https://twitch.tv/helene_ducrocq',
+        starting: DateTime(2024, 10, 25, 3),
+        length: const Duration(hours: 4)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 25, 7),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'Piickwiic',
+        url: 'https://twitch.tv/piickwiic',
+        starting: DateTime(2024, 10, 25, 7, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'TABLE RONDE',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 25, 10, 30),
+        length: const Duration(hours: 1, minutes: 30)),
+    ScheduleInfo(
+        title: 'LaQueteDuBois',
+        url: 'https://twitch.tv/laquetedubois',
+        starting: DateTime(2024, 10, 25, 12),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 25, 15),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'Le_Sketch',
+        url: 'https://twitch.tv/le_sketch',
+        starting: DateTime(2024, 10, 25, 15, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'LE D&D D\'HALLOWEEN',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 25, 18, 30),
+        length: const Duration(hours: 8, minutes: 30)),
+    ScheduleInfo(
+        title: 'WayceUpenFoya',
+        url: 'https://twitch.tv/wayceupenfoya',
+        starting: DateTime(2024, 10, 26, 3),
+        length: const Duration(hours: 4)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 26, 7),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'lejournaldaely',
+        url: 'https://twitch.tv/lejournaldaely',
+        starting: DateTime(2024, 10, 26, 7, 30),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+        title: 'Pause - discussion',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 26, 10, 30),
+        length: const Duration(minutes: 30)),
+    ScheduleInfo(
+        title: 'À confirmer',
+        starting: DateTime(2024, 10, 26, 11),
+        length: const Duration(hours: 3)),
+    ScheduleInfo(
+      title: 'Cérémonie de clôture',
+      url: 'https://twitch.tv/pariterre',
+      starting: DateTime(2024, 10, 26, 14),
+      length: const Duration(minutes: 30),
+    ),
   ];
 }
 
