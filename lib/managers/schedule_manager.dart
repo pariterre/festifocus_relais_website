@@ -32,8 +32,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 24, 13),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'Pariterre',
-        url: 'https://twitch.tv/pariterre',
+        title: 'AlchimisteDesMots',
+        url: 'https://twitch.tv/alchimistedesmots',
         starting: DateTime(2024, 10, 24, 13, 30),
         length: const Duration(hours: 3)),
     ScheduleInfo(
@@ -42,8 +42,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 24, 16, 30),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'AlchimisteDesMots',
-        url: 'https://twitch.tv/alchimistedesmots',
+        title: 'WayceUpenFoya',
+        url: 'https://twitch.tv/wayceupenfoya',
         starting: DateTime(2024, 10, 24, 17),
         length: const Duration(hours: 3)),
     ScheduleInfo(
@@ -52,7 +52,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 24, 20),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'À confirmer',
+        title: 'Pariterre',
+        url: 'https://twitch.tv/pariterre',
         starting: DateTime(2024, 10, 24, 20, 30),
         length: const Duration(hours: 3)),
     ScheduleInfo(
@@ -106,8 +107,7 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 25, 18, 30),
         length: const Duration(hours: 8, minutes: 30)),
     ScheduleInfo(
-        title: 'WayceUpenFoya',
-        url: 'https://twitch.tv/wayceupenfoya',
+        title: 'À confirmer',
         starting: DateTime(2024, 10, 26, 3),
         length: const Duration(hours: 4)),
     ScheduleInfo(
@@ -116,8 +116,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 26, 7),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'lejournaldaely',
-        url: 'https://twitch.tv/lejournaldaely',
+        title: 'LineManoury_Auteure',
+        url: 'https://twitch.tv/linemanoury_auteure',
         starting: DateTime(2024, 10, 26, 7, 30),
         length: const Duration(hours: 3)),
     ScheduleInfo(
@@ -126,7 +126,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 26, 10, 30),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'À confirmer',
+        title: 'lejournaldaely',
+        url: 'https://twitch.tv/lejournaldaely',
         starting: DateTime(2024, 10, 26, 11),
         length: const Duration(hours: 3)),
     ScheduleInfo(

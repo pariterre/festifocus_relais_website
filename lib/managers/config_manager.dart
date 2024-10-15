@@ -40,7 +40,7 @@ class ConfigManager {
     ),
     StreamerInfo(
       'LaLoutreBurlesque',
-      description: '',
+      description: 'Tant qu\'il y a de la loutre il y a de l\'espoir.',
       twitchUrl: 'https://twitch.tv/laloutreburlesque',
     ),
     StreamerInfo(
@@ -50,6 +50,16 @@ class ConfigManager {
           'partagé mon savoir et si le temps si prête jouer a quelque jeux '
           'qui m\'inspire.',
       twitchUrl: 'https://twitch.tv/laquetedubois',
+    ),
+    StreamerInfo(
+      'LineManoury_Auteure',
+      description:
+          'Grande lectrice, autrice, et désormais correctrice/bêta-lectrice '
+          'professionnelle, je vous propose des sessions de co-working, '
+          'principalement autour des livres (donc lecture et écriture), mais '
+          'rien ne vous empêche de nous joindre pour bosser sur tout '
+          'autre chose :D',
+      twitchUrl: 'https://twitch.tv/linemanoury_auteure',
     ),
     StreamerInfo(
       'lejournaldaely',
