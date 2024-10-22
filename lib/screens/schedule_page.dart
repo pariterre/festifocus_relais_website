@@ -117,7 +117,7 @@ class _StreamerTile extends StatelessWidget {
 
     final now = DateTime.now();
 
-    final startingTime = info.starting.add(Duration(hours: fromFrance ? 5 : 0));
+    final startingTime = info.starting.add(Duration(hours: fromFrance ? 6 : 0));
     final endingTime = startingTime.add(info.length);
     final isActive =
         now.compareTo(startingTime) > 0 && now.compareTo(endingTime) < 0;
