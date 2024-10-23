@@ -101,6 +101,16 @@ class ConfigManager {
       twitchUrl: 'https://twitch.tv/piickwiic',
     ),
     StreamerInfo(
+      'Solveig_L_HEVEDER',
+      description:
+          '🎇Co-working écriture🎇Autrice indépendante, j\'écris dans des genres '
+          'différents, mais j\'essaierai toujours de faire battre vos cœurs avec '
+          'un peu de romance! Seul problème? Entre le boulot et la famille, les '
+          'streams sont plus qu\'aléatoires ^^\' suivez-moi sur insta et discord '
+          'pour ne pas me rater! ;)',
+      twitchUrl: 'https://twitch.tv/piickwiic',
+    ),
+    StreamerInfo(
       'WayceUpenFoya',
       description:
           'J\'ai lancé cette chaîne pour partager ma passion pour l\'écriture, '

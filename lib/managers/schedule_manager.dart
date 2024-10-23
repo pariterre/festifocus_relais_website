@@ -107,7 +107,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 25, 18, 30),
         length: const Duration(hours: 8, minutes: 30)),
     ScheduleInfo(
-        title: 'À confirmer',
+        title: 'Solveig_L_HEVEDER',
+        url: 'https://twitch.tv/solveig_L_HEVEDER',
         starting: DateTime(2024, 10, 26, 3),
         length: const Duration(hours: 4)),
     ScheduleInfo(
@@ -128,14 +129,13 @@ class ScheduleManager {
     ScheduleInfo(
         title: 'lejournaldaely',
         url: 'https://twitch.tv/lejournaldaely',
-        starting: DateTime(2024, 10, 26, 11),
+        starting: DateTime(2024, 10, 26, 11, 00),
         length: const Duration(hours: 3)),
     ScheduleInfo(
-      title: 'Cérémonie de clôture',
-      url: 'https://twitch.tv/pariterre',
-      starting: DateTime(2024, 10, 26, 14),
-      length: const Duration(minutes: 30),
-    ),
+        title: 'Cérémonie de clôture',
+        url: 'https://twitch.tv/pariterre',
+        starting: DateTime(2024, 10, 26, 14),
+        length: const Duration(minutes: 30)),
   ];
 }
 
