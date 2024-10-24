@@ -7,16 +7,16 @@ import 'package:pomodautomne/managers/theme_manager.dart';
 import 'package:pomodautomne/models/chatter.dart';
 import 'package:pomodautomne/widgets/tab_container.dart';
 
-class PrizePage extends StatefulWidget {
-  const PrizePage({super.key, required this.maxWidth});
+class PricePage extends StatefulWidget {
+  const PricePage({super.key, required this.maxWidth});
 
   final double maxWidth;
 
   @override
-  State<PrizePage> createState() => _PrizePageState();
+  State<PricePage> createState() => _PricePageState();
 }
 
-class _PrizePageState extends State<PrizePage> {
+class _PricePageState extends State<PricePage> {
   final nbParticipantsToDraw = TextEditingController();
 
   @override

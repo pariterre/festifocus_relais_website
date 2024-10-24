@@ -108,7 +108,7 @@ class ScheduleManager {
         length: const Duration(hours: 8, minutes: 30)),
     ScheduleInfo(
         title: 'Solveig_L_HEVEDER',
-        url: 'https://twitch.tv/solveig_L_HEVEDER',
+        url: 'https://twitch.tv/Solveig_L_HEVEDER',
         starting: DateTime(2024, 10, 26, 3),
         length: const Duration(hours: 4)),
     ScheduleInfo(

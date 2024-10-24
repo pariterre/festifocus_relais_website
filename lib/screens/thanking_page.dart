@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pomodautomne/managers/config_manager.dart';
 import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/models/prize.dart';
+import 'package:pomodautomne/models/price.dart';
 import 'package:pomodautomne/widgets/tab_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -56,9 +56,14 @@ class ThankingPage extends StatelessWidget {
                   text: 'Prix de participation',
                   style: ThemeManager.instance.themeData.textTheme.titleSmall),
               const TextSpan(text: '\n'),
-              const TextSpan(text: 'À venir!'),
-              ...cm.prizes.asMap().keys.map((index) =>
-                  _prizeToText(index: index + 1, prize: cm.prizes[index]))
+              const TextSpan(
+                  text:
+                      'Encore une fois cette année, nos animateurs et animatrices '
+                      'ont été généreux pour vous! Plusieurs ont proposé d\'offrir '
+                      'de la marchandise de leur chaine aux participants et '
+                      'participantes du marathon. Voici les prix qui ont été offerts :\n'),
+              ...cm.prices.asMap().keys.map((index) =>
+                  _priceToText(index: index + 1, price: cm.prices[index]))
             ],
           )),
           const SizedBox(height: 40),
@@ -87,25 +92,25 @@ class ThankingPage extends StatelessWidget {
     );
   }
 
-  TextSpan _prizeToText({required int index, required Prize prize}) {
+  TextSpan _priceToText({required int index, required Price price}) {
     return TextSpan(
       children: [
         TextSpan(text: '    $index. '),
         TextSpan(
-            text: prize.title,
+            text: price.title,
             style: const TextStyle(fontStyle: FontStyle.italic)),
         const TextSpan(text: ', '),
         TextSpan(
-            text: prize.person,
+            text: price.person,
             style: const TextStyle(fontWeight: FontWeight.bold)),
-        if (prize.url != null)
+        if (price.url != null)
           TextSpan(children: [
             const TextSpan(text: ' ('),
             TextSpan(
                 text: 'Plus d\'info',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    launchUrl(Uri.parse(prize.url!));
+                    launchUrl(Uri.parse(price.url!));
                   },
                 style: const TextStyle(
                     decoration: TextDecoration.underline,

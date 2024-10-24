@@ -1,3 +1,4 @@
+import 'package:pomodautomne/models/price.dart';
 import 'package:pomodautomne/models/streamer_info.dart';
 import 'package:twitch_manager/twitch_app.dart';
 
@@ -122,7 +123,21 @@ class ConfigManager {
     ),
   ];
 
-  final prizes = [];
+  final prices = [
+    Price(title: 'Deux marques page', person: 'Piickwiic'),
+    Price(title: 'Un marque page', person: 'Piickwiic'),
+    Price(title: 'Un marque page', person: 'lejournaldaely'),
+    Price(title: 'Un marque page', person: 'lejournaldaely'),
+    Price(
+        title: 'Jacqueline et ses copines (ebook)',
+        person: 'alchimistedesmots'),
+    Price(title: 'Portée disparue (ebook)', person: 'Solveig_L_HEVEDER'),
+    Price(title: 'Passion masquée (ebook)', person: 'Solveig_L_HEVEDER'),
+    Price(
+        title: 'Cahier de coloriage sur les chauves-souris',
+        person: 'Helene_Ducrocq'),
+    Price(title: 'Chagrine (ebook)', person: 'WayceUpenFoya'),
+  ];
 
   ///
   /// Twitch information

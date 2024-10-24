@@ -7,7 +7,7 @@ import 'package:pomodautomne/managers/schedule_manager.dart';
 import 'package:pomodautomne/managers/theme_manager.dart';
 import 'package:pomodautomne/screens/introduction_page.dart';
 import 'package:pomodautomne/screens/mystery_event_page.dart';
-import 'package:pomodautomne/screens/prize_page.dart';
+import 'package:pomodautomne/screens/price_page.dart';
 import 'package:pomodautomne/screens/schedule_page.dart';
 import 'package:pomodautomne/screens/streamers_page.dart';
 import 'package:pomodautomne/screens/thanking_page.dart';
@@ -100,7 +100,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                 isInitialized: _isInitialized,
                                 isAdmistration: widget.isAdmistration,
                               ),
-                              PrizePage(maxWidth: columnWidth),
+                              PricePage(maxWidth: columnWidth),
                             ]
                           : [
                               IntroductionPage(maxWidth: columnWidth),
