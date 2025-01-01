@@ -77,8 +77,8 @@ class ScheduleManager {
         starting: DateTime(2024, 10, 25, 7),
         length: const Duration(minutes: 30)),
     ScheduleInfo(
-        title: 'Piickwiic',
-        url: 'https://twitch.tv/piickwiic',
+        title: 'AurorePassionpreneure',
+        url: 'https://twitch.tv/AurorePassionpreneure',
         starting: DateTime(2024, 10, 25, 7, 30),
         length: const Duration(hours: 3)),
     ScheduleInfo(

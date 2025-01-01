@@ -92,14 +92,13 @@ class ConfigManager {
       philosophyYoutubeId: 'iwt_sJ5KFWM',
     ),
     StreamerInfo(
-      'Piickwiic',
+      'AurorePassionpreneure',
       description:
-          'Coucou par ici, moi c\'est Anais. J\'ai 38 ans, deux enfants, et un '
-          'chat qui répond au doux nom de Minette. C\'est même devenue la '
-          'mascotte de la chaine ! Cette chaine parle de livres, de coloriages, '
-          'mais pas que ! Si le coeur vous en dit, venez me faire un petit '
-          'coucou pendant un live :) ',
-      twitchUrl: 'https://twitch.tv/piickwiic',
+          'La streameuse qui te fait déculpabiliser de prendre des pauses | Burnout '
+          'Survivor | +16ans com\' & web | Je t\'aide à entreprendre sans y '
+          'perdre Bien-être, Plaisir & Sens (check mon Insta !) | Lives les '
+          'jeudis et vendredis (en générale)',
+      twitchUrl: 'https://twitch.tv/AurorePassionpreneure',
     ),
     StreamerInfo(
       'Solveig_L_HEVEDER',
@@ -109,7 +108,7 @@ class ConfigManager {
           'un peu de romance! Seul problème? Entre le boulot et la famille, les '
           'streams sont plus qu\'aléatoires ^^\' suivez-moi sur insta et discord '
           'pour ne pas me rater! ;)',
-      twitchUrl: 'https://twitch.tv/piickwiic',
+      twitchUrl: 'https://twitch.tv/Solveig_L_HEVEDER',
     ),
     StreamerInfo(
       'WayceUpenFoya',
