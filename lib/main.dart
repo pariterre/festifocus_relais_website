@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:festifocus_relais_website/firebase_options.dart';
 import 'package:festifocus_relais_website/managers/config_manager.dart';
 import 'package:festifocus_relais_website/managers/schedule_manager.dart';
@@ -7,7 +6,6 @@ import 'package:festifocus_relais_website/managers/twitch_manager.dart';
 import 'package:festifocus_relais_website/screens/administration_login_page.dart';
 import 'package:festifocus_relais_website/screens/connect_streamers_page.dart';
 import 'package:festifocus_relais_website/screens/main_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -16,9 +14,8 @@ import 'package:intl/intl.dart';
 void main() async {
   await _initializeIntl();
   await _initializeManagers(
-    useTwitchMock: false,
-    useDatabaseEmulator: false,
-    useScheduleManagerMock: false,
+    useTwitchMock: true,
+    useScheduleManagerMock: true,
   );
   runApp(const MyApp(isAdmistration: false));
 }
@@ -54,7 +51,6 @@ Future<void> _initializeIntl() async {
 
 Future<void> _initializeManagers({
   required bool useTwitchMock,
-  required bool useDatabaseEmulator,
   required bool useScheduleManagerMock,
 }) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,11 +63,6 @@ Future<void> _initializeManagers({
   );
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  if (useDatabaseEmulator) {
-    FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-  }
-
   if (useScheduleManagerMock) {
     ScheduleManagerMock.initializeMock();
   }
