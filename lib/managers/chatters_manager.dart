@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:pomodautomne/managers/twitch_manager.dart';
-import 'package:pomodautomne/models/chatter.dart';
-import 'package:pomodautomne/models/custom_listener.dart';
-import 'package:pomodautomne/models/firebase_updater.dart';
-import 'package:pomodautomne/models/streamer.dart';
+import 'package:festifocus_relais_website/managers/twitch_manager.dart';
+import 'package:festifocus_relais_website/models/chatter.dart';
+import 'package:festifocus_relais_website/models/custom_listener.dart';
+import 'package:festifocus_relais_website/models/firebase_updater.dart';
+import 'package:festifocus_relais_website/models/streamer.dart';
 import 'package:quiver/collection.dart';
 
 class ChattersManager extends DelegatingList<Chatter>

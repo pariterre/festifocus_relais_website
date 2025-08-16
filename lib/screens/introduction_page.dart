@@ -1,10 +1,10 @@
+import 'package:festifocus_relais_website/managers/config_manager.dart';
+import 'package:festifocus_relais_website/managers/theme_manager.dart';
+import 'package:festifocus_relais_website/models/information_setter.dart';
+import 'package:festifocus_relais_website/widgets/tab_container.dart';
+import 'package:festifocus_relais_website/widgets/youtube_box.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/managers/config_manager.dart';
-import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/models/information_setter.dart';
-import 'package:pomodautomne/widgets/tab_container.dart';
-import 'package:pomodautomne/widgets/youtube_box.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 

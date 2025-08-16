@@ -1,5 +1,5 @@
-import 'package:pomodautomne/models/price.dart';
-import 'package:pomodautomne/models/streamer_info.dart';
+import 'package:festifocus_relais_website/models/price.dart';
+import 'package:festifocus_relais_website/models/streamer_info.dart';
 import 'package:twitch_manager/twitch_app.dart';
 
 class ConfigManager {

@@ -1,6 +1,6 @@
+import 'package:festifocus_relais_website/screens/connect_streamers_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/screens/connect_streamers_page.dart';
 
 class AdministrationLoginPage extends StatefulWidget {
   const AdministrationLoginPage({super.key});

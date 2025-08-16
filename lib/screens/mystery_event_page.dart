@@ -1,5 +1,5 @@
+import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/widgets/tab_container.dart';
 
 class MysteryEventPage extends StatelessWidget {
   const MysteryEventPage({super.key, required this.maxWidth});

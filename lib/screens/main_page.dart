@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:festifocus_relais_website/managers/chatters_manager.dart';
+import 'package:festifocus_relais_website/managers/schedule_manager.dart';
+import 'package:festifocus_relais_website/managers/theme_manager.dart';
+import 'package:festifocus_relais_website/screens/introduction_page.dart';
+import 'package:festifocus_relais_website/screens/mystery_event_page.dart';
+import 'package:festifocus_relais_website/screens/price_page.dart';
+import 'package:festifocus_relais_website/screens/schedule_page.dart';
+import 'package:festifocus_relais_website/screens/streamers_page.dart';
+import 'package:festifocus_relais_website/screens/thanking_page.dart';
+import 'package:festifocus_relais_website/screens/viewers_page.dart';
+import 'package:festifocus_relais_website/widgets/background.dart';
+import 'package:festifocus_relais_website/widgets/menu.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/managers/chatters_manager.dart';
-import 'package:pomodautomne/managers/schedule_manager.dart';
-import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/screens/introduction_page.dart';
-import 'package:pomodautomne/screens/mystery_event_page.dart';
-import 'package:pomodautomne/screens/price_page.dart';
-import 'package:pomodautomne/screens/schedule_page.dart';
-import 'package:pomodautomne/screens/streamers_page.dart';
-import 'package:pomodautomne/screens/thanking_page.dart';
-import 'package:pomodautomne/screens/viewers_page.dart';
-import 'package:pomodautomne/widgets/background.dart';
-import 'package:pomodautomne/widgets/menu.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.isAdmistration});

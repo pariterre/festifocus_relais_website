@@ -1,6 +1,6 @@
+import 'package:festifocus_relais_website/managers/twitch_manager.dart';
+import 'package:festifocus_relais_website/screens/main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/managers/twitch_manager.dart';
-import 'package:pomodautomne/screens/main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:twitch_manager/twitch_app.dart';
 

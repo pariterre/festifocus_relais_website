@@ -5,13 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Pomod'automne",
+            "name": "FestiFocus Automne 2025",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
         },
         {
-            "name": "Pomod'automne (admin)",
+            "name": "FestiFocus Automne 2025 (admin)",
             "request": "launch",
             "type": "dart",
             "program": "lib/main_admin.dart",

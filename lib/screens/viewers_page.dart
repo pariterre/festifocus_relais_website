@@ -1,10 +1,10 @@
+import 'package:festifocus_relais_website/managers/chatters_manager.dart';
+import 'package:festifocus_relais_website/managers/schedule_manager.dart';
+import 'package:festifocus_relais_website/managers/theme_manager.dart';
+import 'package:festifocus_relais_website/models/chatter.dart';
+import 'package:festifocus_relais_website/widgets/animated_expanding_card.dart';
+import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodautomne/managers/chatters_manager.dart';
-import 'package:pomodautomne/managers/schedule_manager.dart';
-import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/models/chatter.dart';
-import 'package:pomodautomne/widgets/animated_expanding_card.dart';
-import 'package:pomodautomne/widgets/tab_container.dart';
 
 class ViewersPage extends StatefulWidget {
   const ViewersPage(

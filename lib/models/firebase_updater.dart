@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:pomodautomne/models/item_serializable.dart';
+import 'package:festifocus_relais_website/models/item_serializable.dart';
 
 abstract mixin class FirebaseUpdater<T extends ItemSerializable> {
   /// The path to the stored data inside the database.

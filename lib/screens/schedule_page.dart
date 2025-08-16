@@ -1,9 +1,9 @@
+import 'package:festifocus_relais_website/managers/schedule_manager.dart';
+import 'package:festifocus_relais_website/managers/theme_manager.dart';
+import 'package:festifocus_relais_website/models/schedule_info.dart';
+import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pomodautomne/managers/schedule_manager.dart';
-import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/models/schedule_info.dart';
-import 'package:pomodautomne/widgets/tab_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 

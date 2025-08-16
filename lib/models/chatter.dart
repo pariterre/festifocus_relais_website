@@ -1,4 +1,4 @@
-import 'package:pomodautomne/models/item_serializable.dart';
+import 'package:festifocus_relais_website/models/item_serializable.dart';
 
 class Chatter implements ItemSerializable {
   final String name;

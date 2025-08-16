@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:festifocus_relais_website/firebase_options.dart';
+import 'package:festifocus_relais_website/managers/config_manager.dart';
+import 'package:festifocus_relais_website/managers/schedule_manager.dart';
+import 'package:festifocus_relais_website/managers/theme_manager.dart';
+import 'package:festifocus_relais_website/managers/twitch_manager.dart';
+import 'package:festifocus_relais_website/screens/administration_login_page.dart';
+import 'package:festifocus_relais_website/screens/connect_streamers_page.dart';
+import 'package:festifocus_relais_website/screens/main_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:pomodautomne/firebase_options.dart';
-import 'package:pomodautomne/managers/config_manager.dart';
-import 'package:pomodautomne/managers/schedule_manager.dart';
-import 'package:pomodautomne/managers/theme_manager.dart';
-import 'package:pomodautomne/managers/twitch_manager.dart';
-import 'package:pomodautomne/screens/connect_streamers_page.dart';
-import 'package:pomodautomne/screens/main_page.dart';
-import 'package:pomodautomne/screens/administration_login_page.dart';
 
 void main() async {
   await _initializeIntl();

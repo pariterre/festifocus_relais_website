@@ -1,4 +1,4 @@
-import 'package:pomodautomne/models/schedule_info.dart';
+import 'package:festifocus_relais_website/models/schedule_info.dart';
 
 class ScheduleManager {
   /// Prepare the singleton
