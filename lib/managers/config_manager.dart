@@ -13,74 +13,13 @@ class ConfigManager {
   ///
   /// General information
   ///
-  final eventName = 'Pomod\'Automne - 48h - Relais';
+  final eventName = 'FestiFocus \u2015 Relais';
   String youtubeEventUrlId = 'eodaPPwvwxw';
 
   ///
   /// Streamers information
   ///
   final streamersInfo = [
-    StreamerInfo(
-      'AlchimisteDesMots',
-      description:
-          'A la tête d\'un atelier magique de messages précieux, j\'aime faire '
-          'des expériences avec les mots et les papiers, un peu comme une '
-          'alchimiste, quoi... 🤭 Bienvenue dans une safeplace où les lives '
-          'buguent et les 🐈, le 🐕 & les 🙎‍♂️ sont à rôder pas loin (du stream '
-          'cool pas prise de tête en somme)',
-      twitchUrl: 'https://twitch.tv/alchimistedesmots',
-    ),
-    StreamerInfo(
-      'Helene_Ducrocq',
-      description: 'Bienvenue dans mon studio de création ! Découvre mon '
-          'quotidien de réalisatrice de films d\'animation, d\'illustratrice, '
-          'd\'autrice de livres et d\'artiste. Ici, on coworke pour parler '
-          'créativité, coups de coeur et je réalise en direct mes prochains '
-          'projets (4 films en animation, 1 livre, 1 expo).',
-      twitchUrl: 'https://twitch.tv/helene_ducrocq',
-    ),
-    StreamerInfo(
-      'LaLoutreBurlesque',
-      description: 'Tant qu\'il y a de la loutre il y a de l\'espoir.',
-      twitchUrl: 'https://twitch.tv/laloutreburlesque',
-    ),
-    StreamerInfo(
-      'LaQueteDuBois',
-      description:
-          'Étant concepteur ébéniste je veux vous présenter mon atelier, '
-          'partagé mon savoir et si le temps si prête jouer a quelque jeux '
-          'qui m\'inspire.',
-      twitchUrl: 'https://twitch.tv/laquetedubois',
-    ),
-    StreamerInfo(
-      'LineManoury_Auteure',
-      description:
-          'Grande lectrice, autrice, et désormais correctrice/bêta-lectrice '
-          'professionnelle, je vous propose des sessions de co-working, '
-          'principalement autour des livres (donc lecture et écriture), mais '
-          'rien ne vous empêche de nous joindre pour bosser sur tout '
-          'autre chose :D',
-      twitchUrl: 'https://twitch.tv/linemanoury_auteure',
-    ),
-    StreamerInfo(
-      'lejournaldaely',
-      description: 'Amoureuse des livres 📚, du café ☕, du chocolat 🍫 et des '
-          'chats 😻Tricoteuse compulsive 🧶Vous trouverez ici des lives '
-          'principalement autour de la lecture (RWM, Bookhaul, Challenges '
-          'Littéraires, Bilan du mois etc), des séances papotage, des sessions '
-          'de loisirs créatifs et un peu de gaming !',
-      twitchUrl: 'https://twitch.tv/lejournaldaely',
-    ),
-    StreamerInfo(
-      'Le_Sketch',
-      description:
-          'Mon nom c\'est Michel, j\'suis un vieux geek aux lunettes orange. '
-          'Les lundis et vendredis à 16 h, on discute de marketing & de '
-          'communication à l\'ère numérique. Les samedis à 9 h, on sirote un '
-          'café gaming. Je redonne 100 % des revenus de ma chaîne à ma campagne '
-          'au profit d\'Opération Enfant Soleil.',
-      twitchUrl: 'https://twitch.tv/le_sketch',
-    ),
     StreamerInfo(
       'Pariterre',
       description:
@@ -91,58 +30,17 @@ class ConfigManager {
       presentationYoutubeId: 'TJHV5L9P12k',
       philosophyYoutubeId: 'iwt_sJ5KFWM',
     ),
-    StreamerInfo(
-      'AurorePassionpreneure',
-      description:
-          'La streameuse qui te fait déculpabiliser de prendre des pauses | Burnout '
-          'Survivor | +16ans com\' & web | Je t\'aide à entreprendre sans y '
-          'perdre Bien-être, Plaisir & Sens (check mon Insta !) | Lives les '
-          'jeudis et vendredis (en générale)',
-      twitchUrl: 'https://twitch.tv/AurorePassionpreneure',
-    ),
-    StreamerInfo(
-      'Solveig_L_HEVEDER',
-      description:
-          '🎇Co-working écriture🎇Autrice indépendante, j\'écris dans des genres '
-          'différents, mais j\'essaierai toujours de faire battre vos cœurs avec '
-          'un peu de romance! Seul problème? Entre le boulot et la famille, les '
-          'streams sont plus qu\'aléatoires ^^\' suivez-moi sur insta et discord '
-          'pour ne pas me rater! ;)',
-      twitchUrl: 'https://twitch.tv/Solveig_L_HEVEDER',
-    ),
-    StreamerInfo(
-      'WayceUpenFoya',
-      description:
-          'J\'ai lancé cette chaîne pour partager ma passion pour l\'écriture, '
-          'la lecture et toutes les créations artistiques. Même si vous me '
-          'verrez aussi jouer à des jeux vidéos et discuter autour de divers '
-          'sujets, mon but est de partager avec vous ces univers qui me bercent '
-          'depuis maintenant des années.',
-      twitchUrl: 'https://twitch.tv/wayceupenfoya',
-    ),
   ];
 
   final prices = [
-    Price(title: 'Deux marques page', person: 'Piickwiic'),
-    Price(title: 'Un marque page', person: 'Piickwiic'),
-    Price(title: 'Un marque page', person: 'lejournaldaely'),
-    Price(title: 'Un marque page', person: 'lejournaldaely'),
-    Price(
-        title: 'Jacqueline et ses copines (ebook)',
-        person: 'alchimistedesmots'),
-    Price(title: 'Portée disparue (ebook)', person: 'Solveig_L_HEVEDER'),
-    Price(title: 'Passion masquée (ebook)', person: 'Solveig_L_HEVEDER'),
-    Price(
-        title: 'Cahier de coloriage sur les chauves-souris',
-        person: 'Helene_Ducrocq'),
-    Price(title: 'Chagrine (ebook)', person: 'WayceUpenFoya'),
+    Price(title: 'Un beau sourire', person: 'pariterre'),
   ];
 
   ///
   /// Twitch information
   ///
   final twichAppInfo = TwitchAppInfo(
-    appName: 'Pomod\'Automne - 48h - Relais',
+    appName: 'FestiFocus \u2015 Relais',
     twitchClientId: 'wuxnu9zxzhgu3noztxtgdsulk4c950',
     twitchRedirectUri:
         Uri.https('twitchauthentication.pariterre.net', 'twitch_redirect.html'),

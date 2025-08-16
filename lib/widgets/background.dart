@@ -69,7 +69,8 @@ class Background extends StatelessWidget {
           Positioned(
             top: 30,
             child: SizedBox(
-              width: min(650, MediaQuery.of(context).size.width * 0.8),
+              width: min(650, MediaQuery.of(context).size.width * 0.5),
+              height: 100,
               child: Image.asset('assets/images/title.png'),
             ),
           ),
