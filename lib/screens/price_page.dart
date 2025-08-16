@@ -111,7 +111,9 @@ class _PricePageState extends State<PricePage> {
     final chatters = ChattersManager.instance;
     for (final chatter in chatters) {
       if (!chatter.isBanned &&
-          chatter.totalWatchingTime > minimumTimeToBeEligible) return true;
+          chatter.totalWatchingTime > minimumTimeToBeEligible) {
+        return true;
+      }
     }
     return false;
   }

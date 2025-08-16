@@ -73,7 +73,7 @@ class _MenuState extends State<Menu> {
               borderRadius: BorderRadius.circular(25),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withAlpha(125),
                     borderRadius: BorderRadius.circular(25)),
                 child: const Icon(
                   Icons.keyboard_arrow_left_outlined,
@@ -95,7 +95,7 @@ class _MenuState extends State<Menu> {
               borderRadius: BorderRadius.circular(25),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withAlpha(125),
                     borderRadius: BorderRadius.circular(25)),
                 child: const Icon(
                   Icons.keyboard_arrow_right_outlined,

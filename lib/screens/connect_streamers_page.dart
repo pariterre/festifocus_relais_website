@@ -56,17 +56,15 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
   }
 
   void _connectStreamer({required String saveId}) async {
-    final manager = await showDialog<TwitchAppManager>(
-      context: context,
-      builder: (context) => Dialog(
-          child: TwitchAppAuthenticationDialog(
-        isMockActive: TwitchManager.instance.useMock,
-        debugPanelOptions: TwitchManager.instance.debugOptions,
-        onConnexionEstablished: (manager) => Navigator.pop(context, manager),
-        appInfo: TwitchManager.instance.appInfo,
-        saveKey: saveId,
-        reload: true,
-      )),
+    final manager = await showTwitchAppAuthenticationDialog(
+      context,
+      appInfo: TwitchManager.instance.appInfo,
+      onConnexionEstablished: (manager) => Navigator.pop(context, manager),
+      onCancelConnexion: () => Navigator.pop(context),
+      reload: true,
+      saveKey: saveId,
+      useMocker: TwitchManager.instance.useMock,
+      debugPanelOptions: TwitchManager.instance.debugOptions,
     );
     if (!mounted || manager == null) return;
 

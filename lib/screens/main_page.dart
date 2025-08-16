@@ -75,7 +75,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               child: Container(
                 decoration: BoxDecoration(
                   color:
-                      ThemeManager.instance.boxBackgroundColor.withOpacity(0.5),
+                      ThemeManager.instance.boxBackgroundColor.withAlpha(125),
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),

@@ -15,7 +15,7 @@ class ChattersManager extends DelegatingList<Chatter>
   List<Chatter> get delegate => _chatters;
 
   @override
-  String get pathToData => 'chatters_A2024';
+  String get pathToData => 'chatters_A2025';
 
   // Prepare the singleton
   static ChattersManager get instance => _instance;
