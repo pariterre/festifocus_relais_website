@@ -49,11 +49,10 @@ class _SchedulePageState extends State<SchedulePage> {
         children: [
           _buildHeader(context),
           const SizedBox(height: 12),
-          ...sm.eventSchedule.map((e) => _StreamerTile(
-                info: e,
-                fromFrance: _fromFrance,
-              )),
-          const SizedBox(height: 50),
+          ...sm.eventSchedule.map(
+            (e) => _StreamerTile(info: e, fromFrance: _fromFrance),
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height - 375),
         ],
       ),
     );
@@ -73,31 +72,35 @@ class _SchedulePageState extends State<SchedulePage> {
                 child: Text(
                   'France',
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      fontWeight:
-                          _fromFrance ? FontWeight.bold : FontWeight.normal,
-                      decoration:
-                          _fromFrance ? TextDecoration.underline : null),
+                    fontWeight: _fromFrance
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                    decoration: _fromFrance ? TextDecoration.underline : null,
+                  ),
                 ),
               ),
               const SizedBox(width: 8),
               Text(
                 '/',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(width: 8),
               InkWell(
-                  onTap: () => toggleTimeZone(false),
-                  child: Text('Québec',
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontWeight:
-                              _fromFrance ? FontWeight.normal : FontWeight.bold,
-                          decoration:
-                              _fromFrance ? null : TextDecoration.underline))),
+                onTap: () => toggleTimeZone(false),
+                child: Text(
+                  'Québec',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: _fromFrance
+                        ? FontWeight.normal
+                        : FontWeight.bold,
+                    decoration: _fromFrance ? null : TextDecoration.underline,
+                  ),
+                ),
+              ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -125,48 +128,53 @@ class _StreamerTile extends StatelessWidget {
     return Center(
       child: Card(
         elevation: 5,
-        child: LayoutBuilder(builder: (context, constraints) {
-          return Container(
-            decoration: BoxDecoration(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Container(
+              decoration: BoxDecoration(
                 color: isActive
                     ? tm.colorButtonSelected
                     : tm.colorButtonUnselected,
-                borderRadius: BorderRadius.circular(8)),
-            width: constraints.maxWidth * 3 / 4,
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    info.title,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(dateFormat.format(startingTime)),
-                        if (info.url != null)
-                          InkWell(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              width: constraints.maxWidth * 3 / 4,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      info.title,
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(dateFormat.format(startingTime)),
+                          if (info.url != null)
+                            InkWell(
                               onTap: () {
                                 launchUrl(Uri.parse(info.url!));
                               },
                               child: Text(
                                 info.url!,
                                 style: const TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Colors.black),
-                              )),
-                      ],
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.black,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       ),
     );
   }

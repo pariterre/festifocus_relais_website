@@ -9,12 +9,36 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
+            "args": [
+                "--dart-define=FESTIFOCUS_IS_ADMINISTRATION=false",
+                "--dart-define=FESTIFOCUS_USE_TWITCH_MOCK=true",
+                "--dart-define=FESTIFOCUS_USE_DATABASE_EMULATOR=false",
+                "--dart-define=FESTIFOCUS_USE_SCHEDULE_MANAGER_MOCK=true"
+            ],
         },
         {
             "name": "FestiFocus Automne 2025 (admin)",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_admin.dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=FESTIFOCUS_IS_ADMINISTRATION=true",
+                "--dart-define=FESTIFOCUS_USE_TWITCH_MOCK=true",
+                "--dart-define=FESTIFOCUS_USE_DATABASE_EMULATOR=false",
+                "--dart-define=FESTIFOCUS_USE_SCHEDULE_MANAGER_MOCK=true"
+            ],
+        },
+        {
+            "name": "Release Main",
+            "type": "dart",
+            "request": "launch",
+            "preLaunchTask": "Build Main release",
+        },
+        {
+            "name": "Release Admin",
+            "type": "dart",
+            "request": "launch",
+            "preLaunchTask": "Build Admin release",
         }
     ]
 }

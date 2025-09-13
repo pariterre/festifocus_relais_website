@@ -58,23 +58,26 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     return _GradientRotatingBackground(
       child: Center(
-        child:
-            Stack(alignment: Alignment.center, fit: StackFit.loose, children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-          ),
-          ..._images.map((e) => _MovingImage(e.$1, width: e.$2)),
-          child,
-          Positioned(
-            top: 30,
-            child: SizedBox(
-              width: min(650, MediaQuery.of(context).size.width * 0.5),
-              height: 100,
-              child: Image.asset('assets/images/title.png'),
+        child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.loose,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
             ),
-          ),
-        ]),
+            ..._images.map((e) => _MovingImage(e.$1, width: e.$2)),
+            child,
+            Positioned(
+              top: 30,
+              child: SizedBox(
+                width: min(650, MediaQuery.of(context).size.width * 0.5),
+                height: 100,
+                child: Image.asset('assets/images/title.png'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -91,37 +94,41 @@ class _GradientRotatingBackground extends StatefulWidget {
 }
 
 class _GradientRotatingBackgroundState
-    extends State<_GradientRotatingBackground> with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(duration: const Duration(seconds: 60), vsync: this)
-        ..repeat(reverse: true);
-  late final Animation<Decoration> _animation = DecorationTween(
-    begin: BoxDecoration(
-        gradient: LinearGradient(
-      //stops: const [0, 0.5, 1.0],
-      begin: Alignment.topCenter,
-      end: Alignment.bottomLeft,
-      colors: [
-        ThemeManager.instance.primaryColor,
-        ThemeManager.instance.primaryColor,
-        ThemeManager.instance.secondaryColor,
-      ],
-    )),
-    end: BoxDecoration(
-        gradient: LinearGradient(
-      //stops: const [0, 0.5, 1.0],
-      begin: Alignment.topCenter,
-      end: Alignment.bottomRight,
-      colors: [
-        ThemeManager.instance.primaryColor,
-        ThemeManager.instance.primaryColor,
-        ThemeManager.instance.secondaryColor,
-      ],
-    )),
-  ).animate(_controller)
-    ..addListener(() {
-      setState(() {});
-    });
+    extends State<_GradientRotatingBackground>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 60),
+    vsync: this,
+  )..repeat(reverse: true);
+  late final Animation<Decoration> _animation =
+      DecorationTween(
+        begin: BoxDecoration(
+          gradient: LinearGradient(
+            //stops: const [0, 0.5, 1.0],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomLeft,
+            colors: [
+              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.secondaryColor,
+            ],
+          ),
+        ),
+        end: BoxDecoration(
+          gradient: LinearGradient(
+            //stops: const [0, 0.5, 1.0],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomRight,
+            colors: [
+              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.secondaryColor,
+            ],
+          ),
+        ),
+      ).animate(_controller)..addListener(() {
+        setState(() {});
+      });
 
   @override
   void dispose() {
@@ -177,12 +184,14 @@ class _MovingImageState extends State<_MovingImage>
     _opacity = _random.nextDouble() * 0.3 + 0.1;
 
     _controller = AnimationController(
-        duration: Duration(seconds: _duration), vsync: this);
+      duration: Duration(seconds: _duration),
+      vsync: this,
+    );
 
     _animation = Tween<double>(
-            begin: _direction > 0 ? -0.3 : 1.3,
-            end: _direction > 0 ? 1.3 : -0.3)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
+      begin: _direction > 0 ? -0.3 : 1.3,
+      end: _direction > 0 ? 1.3 : -0.3,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
     setState(() {});
 
     if (_firstTime && _random.nextBool()) {
@@ -215,11 +224,13 @@ class _MovingImageState extends State<_MovingImage>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) => Positioned(
-          top: _animation.value * MediaQuery.of(context).size.height,
-          left: (_horizontalStart +
-                  _animation.value * (_horizontalEnd - _horizontalStart)) *
-              MediaQuery.of(context).size.width,
-          child: child!),
+        top: _animation.value * MediaQuery.of(context).size.height,
+        left:
+            (_horizontalStart +
+                _animation.value * (_horizontalEnd - _horizontalStart)) *
+            MediaQuery.of(context).size.width,
+        child: child!,
+      ),
       child: Opacity(
         opacity: _opacity,
         child: SizedBox(

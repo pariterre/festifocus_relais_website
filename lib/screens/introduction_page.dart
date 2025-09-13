@@ -1,10 +1,12 @@
 import 'package:festifocus_relais_website/managers/config_manager.dart';
 import 'package:festifocus_relais_website/managers/theme_manager.dart';
 import 'package:festifocus_relais_website/models/information_setter.dart';
+import 'package:festifocus_relais_website/models/markdown_configs.dart';
 import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:festifocus_relais_website/widgets/youtube_box.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'package:markdown_widget/markdown_widget.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key, required this.maxWidth});
@@ -30,21 +32,31 @@ class IntroductionPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('INTRODUCTION', style: Theme.of(context).textTheme.titleLarge),
+          MarkdownBlock(
+            config: customMarkdownConfigs(context),
+            selectable: false,
+            data: '''# INTRODUCTION''',
+          ),
           YoutubeBox(
             controller: youtubeController,
             videoId: cm.youtubeEventUrlId,
             widthRatio: 0.8,
           ),
-          const SizedBox(height: 12),
-          const Text.rich(
-              textAlign: TextAlign.justify,
-              TextSpan(
-                  text:
-                      'Bienvenue au FestiFocus-Relais!! Yeah!! Heu... le quoi?')),
+          MarkdownBlock(
+            config: customMarkdownConfigs(context),
+            selectable: false,
+            data: '''
+Bienvenue au **FestiFocus-Relais**!! Yeah!! Heu... le quoi?
+Le grand FestiFocus-Relais, voyons!.. non? D'accord, d'accord, je vous explique...
+
+Le **FestiFocus-Relais** est un événement de cotravail (*coworking*) du Twitch francophone où durant 48h consécutives, vos animateurs et animatrices préféré·e·s se relaient pour travailler avec vous dans une séries de sessions de focus sous forme de [Pomodoro](https://fr.wikipedia.org/wiki/Technique_Pomodoro) Que vous soyez du type sessions longues ou sessions courtes, avec ou sans musique, il y en a pour tous les goûts.\n\n
+Au menu de ce sprint de travail : concentration, pauses dynamiques, belles rencontres, camaraderie, motivation et surtout beaucoup de plaisir!
+
+Ceci vous intrigue et intéresse? Alors n'hésitez pas à vous joindre à nous! Le lancement officiel se fait sur la chaîne de [Pariterre](https://twitch.tv/pariterre)le lundi 6 octobre 2025 dès 10h, heure du Québec (16h en France)!''',
+          ),
           const SizedBox(height: 12),
           const _EmailFormField(),
-          const SizedBox(height: 50),
+          SizedBox(height: MediaQuery.of(context).size.height - 375),
         ],
       ),
     );
@@ -77,14 +89,15 @@ class _EmailFormFieldState extends State<_EmailFormField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Rappel', style: Theme.of(context).textTheme.titleSmall),
-        const Text.rich(
-            textAlign: TextAlign.justify,
-            TextSpan(
-                text:
-                    'Si vous souhaitez vous inscrire à rappel pour l\'événement, vous pouvez '
-                    'indiquer votre courriel dans la boite suivante :')),
-        const SizedBox(height: 12),
+        MarkdownBlock(
+          config: customMarkdownConfigs(context),
+          selectable: false,
+          data: '''
+### Rappel
+
+Si vous souhaitez vous inscrire au rappel pour l'événement, vous pouvez indiquer votre courriel dans la boite suivante :
+''',
+        ),
         Form(
           key: _formKey,
           child: Row(
@@ -103,8 +116,8 @@ class _EmailFormFieldState extends State<_EmailFormField> {
                     }
 
                     if (!RegExp(
-                            r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
-                        .hasMatch(value!)) {
+                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                    ).hasMatch(value!)) {
                       return 'Veuillez entrer un courriel valide';
                     }
                     return null;
@@ -119,11 +132,12 @@ class _EmailFormFieldState extends State<_EmailFormField> {
                   foregroundColor: Colors.black,
                   shape: const RoundedRectangleBorder(),
                 ),
-                child: Text('Envoyer',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(fontSize: 16)),
+                child: Text(
+                  'Envoyer',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleMedium!.copyWith(fontSize: 16),
+                ),
               ),
             ],
           ),

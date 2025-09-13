@@ -1,5 +1,7 @@
+import 'package:festifocus_relais_website/models/markdown_configs.dart';
 import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
+import 'package:markdown_widget/markdown_widget.dart';
 
 class MysteryEventPage extends StatelessWidget {
   const MysteryEventPage({super.key, required this.maxWidth});
@@ -13,16 +15,16 @@ class MysteryEventPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('ACTIVITÉ MYSTÈRE',
-              style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 8),
-          const Text.rich(
-              textAlign: TextAlign.justify,
-              TextSpan(
-                  text:
-                      'Une activité mystère se déroulera lors de la seconde nuit '
-                      'de l\'événement. Cette activité vous sera révélée bientôt!')),
-          const SizedBox(height: 50),
+          MarkdownBlock(
+            config: customMarkdownConfigs(context),
+            selectable: false,
+            data: '''
+# ACTIVITÉ MYSTÈRE
+
+Une activité mystère se déroulera lors de la seconde nuit de l'événement. Cette activité vous sera révélée bientôt!
+''',
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height - 375),
         ],
       ),
     );

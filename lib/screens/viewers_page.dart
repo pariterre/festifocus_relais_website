@@ -7,11 +7,12 @@ import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
 
 class ViewersPage extends StatefulWidget {
-  const ViewersPage(
-      {super.key,
-      required this.isInitialized,
-      required this.isAdmistration,
-      required this.maxWidth});
+  const ViewersPage({
+    super.key,
+    required this.isInitialized,
+    required this.isAdmistration,
+    required this.maxWidth,
+  });
 
   final double maxWidth;
   final bool isInitialized;
@@ -43,11 +44,13 @@ class _ViewersPageState extends State<ViewersPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('AUDITEURS ET AUDITRICES',
-              style: Theme.of(context).textTheme.titleLarge),
+          Text(
+            'AUDITEURS ET AUDITRICES',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 12),
           _buildChattersListTile(context),
-          const SizedBox(height: 50),
+          SizedBox(height: MediaQuery.of(context).size.height - 375),
         ],
       ),
     );
@@ -65,16 +68,22 @@ class _ViewersPageState extends State<ViewersPage> {
     return !sm.hasEventStarted && !widget.isAdmistration && !sm.hasEventFinished
         ? const Text(
             'Lors de l\'événement, votre temps de participation sera enregistré ici! '
-            'Revenez régulièrement sur cette page pour vous comparer aux autres participantes et participants ;-)')
+            'Revenez régulièrement sur cette page pour vous comparer aux autres participantes et participants ;-)',
+          )
         : !widget.isInitialized
-            ? Center(child: CircularProgressIndicator(color: tm.titleColor))
-            : (sortedChatters.isEmpty
-                ? const Text('Aucun auditeur ou auditrice pour l\'instant')
-                : Column(
-                    children: sortedChatters
-                        .map((e) => _ChatterTile(
-                            chatter: e, isAdmistration: widget.isAdmistration))
-                        .toList()));
+        ? Center(child: CircularProgressIndicator(color: tm.titleColor))
+        : (sortedChatters.isEmpty
+              ? const Text('Aucun auditeur ou auditrice pour l\'instant')
+              : Column(
+                  children: sortedChatters
+                      .map(
+                        (e) => _ChatterTile(
+                          chatter: e,
+                          isAdmistration: widget.isAdmistration,
+                        ),
+                      )
+                      .toList(),
+                ));
   }
 }
 
@@ -93,10 +102,12 @@ class _ChatterTile extends StatelessWidget {
     return chatter.isEmpty || (chatter.isBanned && !isAdmistration)
         ? Container()
         : AnimatedExpandingCard(
-            expandedColor:
-                chatter.isBanned ? Colors.white : tm.colorButtonSelected,
-            closedColor:
-                chatter.isBanned ? Colors.white : tm.colorButtonUnselected,
+            expandedColor: chatter.isBanned
+                ? Colors.white
+                : tm.colorButtonSelected,
+            closedColor: chatter.isBanned
+                ? Colors.white
+                : tm.colorButtonUnselected,
             header: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -108,7 +119,8 @@ class _ChatterTile extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Text(
-                      'Participation : $watchingTime minute${watchingTime > 1 ? 's' : ''}'),
+                    'Participation : $watchingTime minute${watchingTime > 1 ? 's' : ''}',
+                  ),
                   if (isAdmistration)
                     InkWell(
                       onTap: () =>
@@ -121,16 +133,20 @@ class _ChatterTile extends StatelessWidget {
                         height: 40,
                         width: 40,
                         child: Icon(
-                            chatter.isBanned ? Icons.person_off : Icons.person),
+                          chatter.isBanned ? Icons.person_off : Icons.person,
+                        ),
                       ),
-                    )
+                    ),
                 ],
               ),
             ),
             builder: (context, isExpanded) => isExpanded
                 ? Padding(
                     padding: const EdgeInsets.only(
-                        left: 12.0, right: 12.0, bottom: 12.0),
+                      left: 12.0,
+                      right: 12.0,
+                      bottom: 12.0,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -147,7 +163,8 @@ class _ChatterTile extends StatelessWidget {
                             children: [
                               Text(streamer),
                               Text(
-                                  '$watchingStreamer minute${watchingStreamer > 1 ? 's' : ''}'),
+                                '$watchingStreamer minute${watchingStreamer > 1 ? 's' : ''}',
+                              ),
                             ],
                           );
                         }),

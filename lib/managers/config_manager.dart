@@ -23,17 +23,20 @@ class ConfigManager {
     StreamerInfo(
       'Pariterre',
       description:
-          'Étudiant en musique à une certaine époque, étudiant en kinésiologie '
-          'à une autre...Alors pourquoi pas compléter un doctorat en Science '
-          'de l\'Activité Physique chez les musiciens?',
+          '''Étudiant en musique à une certaine époque, étudiant en kinésiologie à une autre...Alors pourquoi pas compléter un doctorat en Science de l'Activité Physique chez les musiciens?''',
       twitchUrl: 'https://twitch.tv/pariterre',
       presentationYoutubeId: 'TJHV5L9P12k',
-      philosophyYoutubeId: 'iwt_sJ5KFWM',
     ),
   ];
 
   final prices = [
     Price(title: 'Un beau sourire', person: 'pariterre'),
+    Price(title: 'Un beau sourire', person: 'pariterre'),
+    Price(
+      title: 'Un beau sourire',
+      person: 'pariterre',
+      url: 'https://pariterre.net',
+    ),
   ];
 
   ///
@@ -42,10 +45,14 @@ class ConfigManager {
   final twichAppInfo = TwitchAppInfo(
     appName: 'FestiFocus \u2015 Relais',
     twitchClientId: 'wuxnu9zxzhgu3noztxtgdsulk4c950',
-    twitchRedirectUri:
-        Uri.https('twitchauthentication.pariterre.net', 'twitch_redirect.html'),
-    authenticationServerUri:
-        Uri.https('twitchserver.pariterre.net:3000', 'token'),
+    twitchRedirectUri: Uri.https(
+      'twitchauthentication.pariterre.net',
+      'twitch_redirect.html',
+    ),
+    authenticationServerUri: Uri.https(
+      'twitchserver.pariterre.net:3000',
+      'token',
+    ),
     scope: [TwitchAppScope.chatters, TwitchAppScope.readFollowers],
   );
   final twitchDebugPanel = TwitchDebugPanelOptions(

@@ -17,23 +17,26 @@ class StreamersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final cm = ConfigManager.instance;
 
-    final streamerInfoSorted = [...cm.streamersInfo]..sort(
-        (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
-      );
+    final streamerInfoSorted = [...cm.streamersInfo]
+      ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
 
     return TabContainer(
-        maxWidth: maxWidth,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-                width: double.infinity,
-                child: Text('ANIMATEURS ET ANIMATRICES',
-                    style: Theme.of(context).textTheme.titleLarge)),
-            ...streamerInfoSorted.map((e) => _StreamerCard(streamerInfo: e)),
-            const SizedBox(height: 50),
-          ],
-        ));
+      maxWidth: maxWidth,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              'ANIMATEURS ET ANIMATRICES',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+          ...streamerInfoSorted.map((e) => _StreamerCard(streamerInfo: e)),
+          SizedBox(height: MediaQuery.of(context).size.height - 375),
+        ],
+      ),
+    );
   }
 }
 
@@ -50,22 +53,27 @@ class _StreamerCard extends StatelessWidget {
       closedColor: tm.colorButtonUnselected,
       header: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            streamerInfo.name,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          InkWell(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              streamerInfo.name,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            InkWell(
               onTap: () {
                 launchUrl(Uri.parse(streamerInfo.twitchUrl));
               },
               child: Text(
                 streamerInfo.twitchUrl,
                 style: const TextStyle(
-                    decoration: TextDecoration.underline,
-                    decorationColor: Colors.black),
-              )),
-        ]),
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       builder: (context, isExpanded) => isExpanded
           ? Padding(
@@ -80,8 +88,8 @@ class _StreamerCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 12.0),
                         child: Text.rich(
-                            textAlign: TextAlign.justify,
-                            TextSpan(text: streamerInfo.description)),
+                          TextSpan(text: streamerInfo.description),
+                        ),
                       ),
                       if (streamerInfo.personalWebSite != null)
                         Column(
@@ -89,22 +97,24 @@ class _StreamerCard extends StatelessWidget {
                           children: [
                             const SizedBox(height: 4),
                             InkWell(
-                                onTap: () {
-                                  launchUrl(
-                                      Uri.parse(streamerInfo.personalWebSite!));
-                                },
-                                child: Text(
-                                  streamerInfo.personalWebSite!,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Colors.black),
-                                )),
+                              onTap: () {
+                                launchUrl(
+                                  Uri.parse(streamerInfo.personalWebSite!),
+                                );
+                              },
+                              child: Text(
+                                streamerInfo.personalWebSite!,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.black,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       const SizedBox(height: 12),
-                      if (streamerInfo.presentationYoutubeId == null &&
-                          streamerInfo.philosophyYoutubeId == null)
+                      if (streamerInfo.presentationYoutubeId == null)
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -114,19 +124,11 @@ class _StreamerCard extends StatelessWidget {
                             ),
                             const Text('À venir'),
                           ],
-                        ),
-                      if (streamerInfo.presentationYoutubeId != null)
+                        )
+                      else
                         _VideoWithTitle(
-                            title: 'Qui suis-je?',
-                            videoId: streamerInfo.presentationYoutubeId!),
-                      if (streamerInfo.presentationYoutubeId != null &&
-                          streamerInfo.philosophyYoutubeId != null)
-                        const SizedBox(height: 24),
-                      if (streamerInfo.philosophyYoutubeId != null)
-                        _VideoWithTitle(
-                          title: 'Mon approche du cotravail en pomodoro',
-                          videoId: streamerInfo.philosophyYoutubeId!,
-                          delayBeforeLoading: 3000,
+                          title: 'Qui suis-je?',
+                          videoId: streamerInfo.presentationYoutubeId!,
                         ),
                       const SizedBox(height: 12),
                     ],
@@ -140,31 +142,13 @@ class _StreamerCard extends StatelessWidget {
 }
 
 class _VideoWithTitle extends StatelessWidget {
-  const _VideoWithTitle({
-    required this.title,
-    required this.videoId,
-    this.delayBeforeLoading = 0,
-  });
+  const _VideoWithTitle({required this.title, required this.videoId});
 
   final String title;
   final String videoId;
-  final int delayBeforeLoading;
-
-  ///
-  /// For some reason, if two videos are loaded at the same time, one does not
-  /// load. This method along with [delayBeforeLoading] allows to delay the
-  /// loading of the video while another one is loading
-  Future<bool> _wait() async {
-    if (delayBeforeLoading != 0) {
-      await Future.delayed(Duration(milliseconds: delayBeforeLoading));
-    }
-    return true;
-  }
 
   @override
   Widget build(BuildContext context) {
-    final tm = ThemeManager.instance;
-
     final controller = YoutubePlayerController.fromVideoId(
       videoId: videoId,
       autoPlay: false,
@@ -175,24 +159,12 @@ class _VideoWithTitle extends StatelessWidget {
       ),
     );
 
-    return FutureBuilder(
-      future: _wait(),
-      builder: (context, snapshot) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
-          if (!snapshot.hasData)
-            Center(
-              child: CircularProgressIndicator(color: tm.titleColor),
-            ),
-          if (snapshot.hasData)
-            YoutubeBox(
-                controller: controller, videoId: videoId, widthRatio: 0.8),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: Theme.of(context).textTheme.titleSmall),
+        YoutubeBox(controller: controller, videoId: videoId, widthRatio: 0.8),
+      ],
     );
   }
 }

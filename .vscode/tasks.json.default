@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Main release",
+      "type": "shell",
+      "command": "make",
+      "args": [ "client" ],
+      "problemMatcher": [ ],
+      "isBackground": false,
+      "options": {
+        "env": {
+          "FESTIFOCUS_SSH_USER": "USER_FOR_SSH_SERVICE",
+          "FESTIFOCUS_SSH_SERVER": "SERVER_URL",
+          "FESTIFOCUS_SSH_FOLDER_MAIN": "FOLDER_IN_SERVER"
+        }
+      }
+    },
+    {
+      "label": "Build Admin release",
+      "type": "shell",
+      "command": "make",
+      "args": [ "client" ],
+      "problemMatcher": [ ],
+      "isBackground": false,
+      "options": {
+        "env": {
+          "FESTIFOCUS_SSH_USER": "USER_FOR_SSH_SERVICE",
+          "FESTIFOCUS_SSH_SERVER": "SERVER_URL",
+          "FESTIFOCUS_SSH_FOLDER_ADMIN": "FOLDER_IN_SERVER"
+        }
+      }
+    },
+  ]
+}
+  
