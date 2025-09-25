@@ -71,7 +71,7 @@ class _ViewersPageState extends State<ViewersPage> {
             'Revenez régulièrement sur cette page pour vous comparer aux autres participantes et participants ;-)',
           )
         : !widget.isInitialized
-        ? Center(child: CircularProgressIndicator(color: tm.titleColor))
+        ? Center(child: CircularProgressIndicator(color: tm.primaryColor))
         : (sortedChatters.isEmpty
               ? const Text('Aucun auditeur ou auditrice pour l\'instant')
               : Column(

@@ -1,11 +1,11 @@
 {
-    "name": "Pomod'Automne-Relais",
-    "short_name": "Pomod'Automne-Relais",
+    "name": "FestiFocusPocus-48h-Relais",
+    "short_name": "FestiFocusPocus-48h-Relais",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Le site officiel du Pomod'Automne-Relais!",
+    "description": "Le site officiel du FestiFocusPocus-48h-Relais!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

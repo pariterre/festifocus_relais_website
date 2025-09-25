@@ -1,6 +1,6 @@
-# Pomod'Automne-Relais
+# FestiFocus-Relais
 
-Le site officiel du Pomod'Automne-Relais!
+Le site officiel du FestiFocus-Relais!
 
 ## Getting Started
 

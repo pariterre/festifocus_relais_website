@@ -52,6 +52,15 @@ class Background extends StatelessWidget {
     ('big_yellow', 90),
     ('big_yellow', 110),
     ('big_yellow', 130),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
+    ('chaudron', 200),
   ];
 
   @override
@@ -70,10 +79,14 @@ class Background extends StatelessWidget {
             child,
             Positioned(
               top: 30,
-              child: SizedBox(
-                width: min(650, MediaQuery.of(context).size.width * 0.5),
-                height: 100,
-                child: Image.asset('assets/images/title.png'),
+              child: LayoutBuilder(
+                builder: (context, constraints) => Center(
+                  child: SizedBox(
+                    width: min(650, MediaQuery.of(context).size.width * 0.8),
+                    height: 90,
+                    child: Image.asset('assets/images/title.png'),
+                  ),
+                ),
               ),
             ),
           ],
@@ -109,7 +122,7 @@ class _GradientRotatingBackgroundState
             end: Alignment.bottomLeft,
             colors: [
               ThemeManager.instance.primaryColor,
-              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.secondaryColor,
               ThemeManager.instance.secondaryColor,
             ],
           ),
@@ -121,7 +134,7 @@ class _GradientRotatingBackgroundState
             end: Alignment.bottomRight,
             colors: [
               ThemeManager.instance.primaryColor,
-              ThemeManager.instance.primaryColor,
+              ThemeManager.instance.secondaryColor,
               ThemeManager.instance.secondaryColor,
             ],
           ),

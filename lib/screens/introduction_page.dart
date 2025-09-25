@@ -46,10 +46,10 @@ class IntroductionPage extends StatelessWidget {
             config: customMarkdownConfigs(context),
             selectable: false,
             data: '''
-Bienvenue au **FestiFocus-Relais**!! Yeah!! Heu... le quoi?
-Le grand FestiFocus-Relais, voyons!.. non? D'accord, d'accord, je vous explique...
+Bienvenue au **FestiFocusPocus—48h—Relais**!! Yeah!! Heu... le quoi?
+Le grand FestiFocusPocus—48h—Relais, voyons!.. non? D'accord, d'accord, je vous explique...
 
-Le **FestiFocus-Relais** est un événement de cotravail (*coworking*) du Twitch francophone où durant 48h consécutives, vos animateurs et animatrices préféré·e·s se relaient pour travailler avec vous dans une séries de sessions de focus sous forme de [Pomodoro](https://fr.wikipedia.org/wiki/Technique_Pomodoro) Que vous soyez du type sessions longues ou sessions courtes, avec ou sans musique, il y en a pour tous les goûts.\n\n
+Le **FestiFocusPocus—48h—Relais** est un événement de cotravail (*coworking*) du Twitch francophone où durant 48h consécutives, vos animateurs et animatrices préféré·e·s se relaient pour travailler avec vous dans une séries de sessions de focus sous forme de [Pomodoro](https://fr.wikipedia.org/wiki/Technique_Pomodoro) Que vous soyez du type sessions longues ou sessions courtes, avec ou sans musique, il y en a pour tous les goûts.\n\n
 Au menu de ce sprint de travail : concentration, pauses dynamiques, belles rencontres, camaraderie, motivation et surtout beaucoup de plaisir!
 
 Ceci vous intrigue et intéresse? Alors n'hésitez pas à vous joindre à nous! Le lancement officiel se fait sur la chaîne de [Pariterre](https://twitch.tv/pariterre)le lundi 6 octobre 2025 dès 10h, heure du Québec (16h en France)!''',

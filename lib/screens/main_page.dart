@@ -35,12 +35,14 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           'Horaire',
           'Auditeurs &\nAuditrices',
           'Activité mystère',
-          'Remerciements'
+          'Remerciements',
         ];
   late final _openingTabIfEventIsFinished = widget.isAdmistration ? 0 : 3;
 
-  late final _tabController =
-      TabController(length: _tabMenu.length, vsync: this);
+  late final _tabController = TabController(
+    length: _tabMenu.length,
+    vsync: this,
+  );
 
   @override
   void initState() {
@@ -74,11 +76,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               padding: const EdgeInsets.only(top: 15.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color:
-                      ThemeManager.instance.boxBackgroundColor.withAlpha(125),
+                  color: ThemeManager.instance.boxBackgroundColor.withAlpha(
+                    200,
+                  ),
                   borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
                 width: bandWidth,
               ),
@@ -116,7 +120,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                             ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ],
@@ -136,7 +140,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     // we can assume it is a fresh loading
     if (retries < maxRetries && chatters.isEmpty) {
       await Future.delayed(
-          Duration(milliseconds: maxWaitingTime ~/ maxRetries));
+        Duration(milliseconds: maxWaitingTime ~/ maxRetries),
+      );
       _prepareListTwitchInterface(
         retries: retries + 1,
         maxRetries: maxRetries,

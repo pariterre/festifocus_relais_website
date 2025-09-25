@@ -47,11 +47,14 @@ class ChattersManager extends DelegatingList<Chatter>
   void startMonitoring() async {
     for (final streamerId in TwitchManager.instance.streamerIds) {
       final streamer = Streamer(
-          id: streamerId,
-          name: await TwitchManager.instance.streamerLogin(streamerId));
+        id: streamerId,
+        name: await TwitchManager.instance.streamerLogin(streamerId),
+      );
 
-      Timer.periodic(Duration(seconds: deltaTime),
-          (timer) async => _addTime(streamer: streamer));
+      Timer.periodic(
+        Duration(seconds: deltaTime),
+        (timer) async => _addTime(streamer: streamer),
+      );
     }
   }
 
@@ -64,16 +67,19 @@ class ChattersManager extends DelegatingList<Chatter>
     if (currentChatters == null) return;
 
     // Get the followers of the current streamer
-    final followers =
-        (await tm.fetchFollowers(streamer.id, includeStreamer: true))!;
+    final followers = (await tm.fetchFollowers(
+      streamer.id,
+      includeStreamer: true,
+    ))!;
 
     for (final chatterName in currentChatters) {
       // Check if it is a new chatter
       if (!any((chatter) => chatter.name == chatterName)) {
         add(Chatter(name: chatterName));
       }
-      final currentChatter =
-          firstWhere((chatter) => chatter.name == chatterName);
+      final currentChatter = firstWhere(
+        (chatter) => chatter.name == chatterName,
+      );
 
       // The chatter must be a follower of the streamer
       if (!followers.contains(currentChatter.name)) continue;

@@ -77,7 +77,7 @@ Future<void> _initializeManagers({
   TwitchManager.instance.initialize(
     useMock: useTwitchMock,
     debugOptions: ConfigManager.instance.twitchDebugPanel,
-    appInfo: ConfigManager.instance.twichAppInfo,
+    appInfo: ConfigManager.instance.twitchAppInfo,
   );
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
