@@ -24,8 +24,8 @@ class ScheduleManager {
       length: const Duration(minutes: 45),
     ),
     ScheduleInfo(
-      title: 'Session de coworking avec Hazylla',
-      url: 'https://twitch.tv/hazylla',
+      title: 'Session de coworking avec Solveig_L_HEVEDER',
+      url: 'https://twitch.tv/solveig_l_heveder',
       starting: DateTime(2025, 10, 6, 10, 0),
       length: const Duration(hours: 3),
     ),
@@ -48,8 +48,8 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Session de coworking avec WayceUpenFoya',
-      url: 'https://twitch.tv/wayceupenfoya',
+      title: 'Session de coworking avec Hazylla',
+      url: 'https://twitch.tv/hazylla',
       starting: DateTime(2025, 10, 6, 17, 0),
       length: const Duration(hours: 3),
     ),
@@ -132,8 +132,8 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Session de coworking avec Solveig_L_HEVEDER',
-      url: 'https://twitch.tv/solveig_l_heveder',
+      title: 'Session de coworking avec WayceUpenFoya',
+      url: 'https://twitch.tv/wayceupenfoya',
       starting: DateTime(2025, 10, 8, 3, 0),
       length: const Duration(hours: 4),
     ),

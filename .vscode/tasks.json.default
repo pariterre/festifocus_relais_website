@@ -5,7 +5,7 @@
       "label": "Build Main release",
       "type": "shell",
       "command": "make",
-      "args": [ "client" ],
+      "args": [ "festifocus" ],
       "problemMatcher": [ ],
       "isBackground": false,
       "options": {
@@ -20,7 +20,7 @@
       "label": "Build Admin release",
       "type": "shell",
       "command": "make",
-      "args": [ "client" ],
+      "args": [ "festifocus_admin" ],
       "problemMatcher": [ ],
       "isBackground": false,
       "options": {
