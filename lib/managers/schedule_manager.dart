@@ -7,9 +7,12 @@ class ScheduleManager {
   ScheduleManager._internal();
 
   bool get hasEventStarted =>
-      DateTime.now().compareTo(DateTime(2024, 10, 24, 9, 15)) > 0;
+      DateTime.now().compareTo(eventSchedule.first.starting) > 0;
   bool get hasEventFinished =>
-      DateTime.now().compareTo(DateTime(2024, 10, 26, 20)) > 0;
+      DateTime.now().compareTo(
+        eventSchedule.last.starting.add(eventSchedule.last.length),
+      ) >
+      0;
 
   final eventSchedule = [
     ScheduleInfo(

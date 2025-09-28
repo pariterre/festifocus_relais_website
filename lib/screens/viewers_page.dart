@@ -65,7 +65,7 @@ class _ViewersPageState extends State<ViewersPage> {
 
     final sm = ScheduleManager.instance;
 
-    return !sm.hasEventStarted && !widget.isAdmistration && !sm.hasEventFinished
+    return !sm.hasEventStarted && !widget.isAdmistration
         ? const Text(
             'Lors de l\'événement, votre temps de participation sera enregistré ici! '
             'Revenez régulièrement sur cette page pour vous comparer aux autres participantes et participants ;-)',
