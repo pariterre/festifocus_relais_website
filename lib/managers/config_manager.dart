@@ -54,6 +54,7 @@ J'anime des streams de coworking pour avancer sur mes différents projets et pou
       description:
           '''Je t'aide à entreprendre sans burnout (check mon Insta !) | Coworking & Discussion | La streameuse qui te fait déculpabiliser de prendre des pauses | Burnout Survivor | +17ans com' & web | +10ans à accompagner les entrepreneuses | Lives les jeudis et vendredis (en général)''',
       twitchUrl: 'https://twitch.tv/aurorepassionpreneure',
+      presentationYoutubeId: 'r3CBHrab8Iw',
     ),
     StreamerInfo(
       'Dolyta',
