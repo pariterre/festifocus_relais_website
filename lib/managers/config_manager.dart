@@ -89,12 +89,25 @@ J'anime des streams de coworking pour avancer sur mes différents projets et pou
   ];
 
   final prices = [
-    Price(title: 'Un beau sourire', person: 'pariterre'),
-    Price(title: 'Un beau sourire', person: 'pariterre'),
     Price(
-      title: 'Un beau sourire',
-      person: 'pariterre',
-      url: 'https://pariterre.net',
+      title:
+          '*6 questions puissantes qui m\'ont fait gagner 15h/semaine*, eBook',
+      person: 'AurorePassionpreneure',
+    ),
+    Price(
+      title: '*Portée disparue*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url: 'https://booknode.com/portee_disparue_03535011',
+    ),
+    Price(
+      title: '*Passion masquée tome 1*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url: 'https://booknode.com/passion_masquee_tome_1_linconnu_03590655',
+    ),
+    Price(
+      title: '*Passion masquée tome 2*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url: 'https://booknode.com/passion_masquee_tome_2_dissimulation_03635105',
     ),
   ];
 
