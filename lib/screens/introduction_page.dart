@@ -35,24 +35,28 @@ class IntroductionPage extends StatelessWidget {
           MarkdownBlock(
             config: customMarkdownConfigs(context),
             selectable: false,
-            data: '''# INTRODUCTION''',
-          ),
-          YoutubeBox(
-            controller: youtubeController,
-            videoId: cm.youtubeEventUrlId,
-            widthRatio: 0.8,
-          ),
-          MarkdownBlock(
-            config: customMarkdownConfigs(context),
-            selectable: false,
             data: '''
+# INTRODUCTION
 Bienvenue au **FestiFocusPocus—48h—Relais**!! Yeah!! Heu... le quoi?
 Le grand FestiFocusPocus—48h—Relais, voyons!.. non? D'accord, d'accord, je vous explique...
 
 Le **FestiFocusPocus—48h—Relais** est un événement de cotravail (*coworking*) du Twitch francophone où durant 48h consécutives, vos animateurs et animatrices préféré·e·s se relaient pour travailler avec vous dans une séries de sessions de focus sous forme de [Pomodoro](https://fr.wikipedia.org/wiki/Technique_Pomodoro) Que vous soyez du type sessions longues ou sessions courtes, avec ou sans musique, il y en a pour tous les goûts.\n\n
 Au menu de ce sprint de travail : concentration, pauses dynamiques, belles rencontres, camaraderie, motivation et surtout beaucoup de plaisir!
 
-Ceci vous intrigue et intéresse? Alors n'hésitez pas à vous joindre à nous! Le lancement officiel se fait sur la chaîne de [Pariterre](https://twitch.tv/pariterre)le lundi 6 octobre 2025 dès 10h, heure du Québec (16h en France)!''',
+Je laisse *Pariterre* du Pomococo de Pâques de l'année dernière vous expliquer le concept dans cette courte vidéo :
+''',
+          ),
+          YoutubeBox(
+            controller: youtubeController,
+            videoId: cm.youtubeEventUrlId,
+            widthRatio: 0.8,
+          ),
+
+          MarkdownBlock(
+            config: customMarkdownConfigs(context),
+            selectable: false,
+            data: '''
+Ceci vous intrigue et intéresse? Alors n'hésitez pas à vous joindre à nous! Le lancement officiel se fait sur la chaîne de [Pariterre](https://twitch.tv/pariterre)le lundi 6 octobre 2025 dès 9h15, heure du Québec (15h15 en France)!''',
           ),
           const SizedBox(height: 12),
           const _EmailFormField(),
