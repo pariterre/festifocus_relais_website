@@ -118,6 +118,11 @@ J'anime des streams de coworking pour avancer sur mes différents projets et pou
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_2_dissimulation_03635105',
     ),
+    Prize(
+      title: '*Le Dernier Conte - Tome 1 : Pomme d\'Or*',
+      person: 'Alexiane Thill',
+      url: 'https://booknode.com/le_dernier_conte_tome_1_pomme_dor_03594898',
+    ),
   ];
 
   ///
