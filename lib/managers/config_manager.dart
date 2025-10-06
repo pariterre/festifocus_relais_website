@@ -1,4 +1,4 @@
-import 'package:festifocus_relais_website/models/price.dart';
+import 'package:festifocus_relais_website/models/prize.dart';
 import 'package:festifocus_relais_website/models/streamer_info.dart';
 import 'package:twitch_manager/twitch_app.dart';
 
@@ -88,23 +88,32 @@ J'anime des streams de coworking pour avancer sur mes différents projets et pou
     ),
   ];
 
-  final prices = [
-    Price(
+  final prizes = [
+    Prize(
       title:
           '*6 questions puissantes qui m\'ont fait gagner 15h/semaine*, eBook',
       person: 'AurorePassionpreneure',
     ),
-    Price(
+    Prize(
+      title: '*Chagrine*, pièce de théâtre, eBook',
+      person: 'WayceUpenFoya',
+      url: 'https://booknode.com/chagrine_03613578',
+    ),
+    Prize(
+      title: '*Rideau!*, pièce de théâtre, eBook (à venir)',
+      person: 'WayceUpenFoya',
+    ),
+    Prize(
       title: '*Portée disparue*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/portee_disparue_03535011',
     ),
-    Price(
+    Prize(
       title: '*Passion masquée tome 1*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_1_linconnu_03590655',
     ),
-    Price(
+    Prize(
       title: '*Passion masquée tome 2*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_2_dissimulation_03635105',

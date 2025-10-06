@@ -6,7 +6,7 @@ import 'package:festifocus_relais_website/managers/schedule_manager.dart';
 import 'package:festifocus_relais_website/managers/theme_manager.dart';
 import 'package:festifocus_relais_website/screens/introduction_page.dart';
 import 'package:festifocus_relais_website/screens/mystery_event_page.dart';
-import 'package:festifocus_relais_website/screens/price_page.dart';
+import 'package:festifocus_relais_website/screens/prize_page.dart';
 import 'package:festifocus_relais_website/screens/schedule_page.dart';
 import 'package:festifocus_relais_website/screens/streamers_page.dart';
 import 'package:festifocus_relais_website/screens/thanking_page.dart';
@@ -104,7 +104,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                 isInitialized: _isInitialized,
                                 isAdmistration: widget.isAdmistration,
                               ),
-                              PricePage(maxWidth: columnWidth),
+                              PrizePage(maxWidth: columnWidth),
                             ]
                           : [
                               IntroductionPage(maxWidth: columnWidth),

@@ -1,6 +1,6 @@
 import 'package:festifocus_relais_website/managers/config_manager.dart';
 import 'package:festifocus_relais_website/models/markdown_configs.dart';
-import 'package:festifocus_relais_website/models/price.dart';
+import 'package:festifocus_relais_website/models/prize.dart';
 import 'package:festifocus_relais_website/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart';
@@ -34,7 +34,7 @@ Finalement, un grand merci à tous les auditeurs et toutes les auditrices pour v
 
 ## Prix de participation
 Encore une fois cette année, nos animateurs et animatrices ont été généreux pour vous! Plusieurs ont proposé d'offrir de la marchandise de leur chaine aux participants et participantes du marathon. Voici les prix qui ont été offerts :
-${cm.prices.asMap().keys.map((index) => _priceToText(index: index, price: cm.prices[index])).join('\n')}
+${cm.prizes.asMap().keys.map((index) => _prizeToText(index: index, prize: cm.prizes[index])).join('\n')}
 
 ## Crédits
 Site web réalisé par Benjamin Michaud.
@@ -48,8 +48,8 @@ Idée originale et création de l'affiche par *Lièvre*.
     );
   }
 
-  String _priceToText({required int index, required Price price}) {
-    return '1. ${price.title}, **${price.person}** '
-        '${price.url != null ? '    [En savoir plus...](${price.url})' : ''}';
+  String _prizeToText({required int index, required Prize prize}) {
+    return '1. ${prize.title}, **${prize.person}** '
+        '${prize.url != null ? '    [En savoir plus...](${prize.url})' : ''}';
   }
 }
