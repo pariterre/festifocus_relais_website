@@ -1,7 +1,13 @@
 class Prize {
-  String title;
-  String person;
-  String? url;
+  final String title;
+  final String person;
+  final String? url;
+  final String? winner;
 
-  Prize({required this.title, required this.person, this.url});
+  const Prize({
+    required this.title,
+    required this.person,
+    this.url,
+    this.winner,
+  });
 }

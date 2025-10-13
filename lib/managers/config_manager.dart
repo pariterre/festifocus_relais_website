@@ -90,38 +90,44 @@ J'anime des streams de coworking pour avancer sur mes différents projets et pou
 
   final prizes = [
     Prize(
-      title:
-          '*6 questions puissantes qui m\'ont fait gagner 15h/semaine*, eBook',
+      title: '*6 questions puissantes qui m\'ont fait gagner 15h/semaine*',
       person: 'AurorePassionpreneure',
+      winner: 'anj024',
     ),
     Prize(
       title: '*Chagrine*, pièce de théâtre, eBook',
       person: 'WayceUpenFoya',
       url: 'https://booknode.com/chagrine_03613578',
+      winner: 'unlivrealamain',
     ),
     Prize(
       title: '*Rideau!*, pièce de théâtre, eBook (à venir)',
       person: 'WayceUpenFoya',
+      winner: 'Zungiri',
     ),
     Prize(
       title: '*Portée disparue*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/portee_disparue_03535011',
+      winner: 'Aqualodi',
     ),
     Prize(
       title: '*Passion masquée tome 1*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_1_linconnu_03590655',
+      winner: 'noah_blight',
     ),
     Prize(
       title: '*Passion masquée tome 2*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_2_dissimulation_03635105',
+      winner: 'caramelita_caro',
     ),
     Prize(
-      title: '*Le Dernier Conte - Tome 1 : Pomme d\'Or*',
+      title: '*Le Dernier Conte — Tome 1 : Pomme d\'Or*',
       person: 'Alexiane Thill',
       url: 'https://booknode.com/le_dernier_conte_tome_1_pomme_dor_03594898',
+      winner: 'helenewww',
     ),
   ];
 

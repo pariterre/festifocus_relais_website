@@ -50,6 +50,7 @@ Idée originale et création de l'affiche par *Lièvre*.
 
   String _prizeToText({required int index, required Prize prize}) {
     return '1. ${prize.title}, **${prize.person}** '
-        '${prize.url != null ? '    [En savoir plus...](${prize.url})' : ''}';
+        '${prize.url != null ? '    [En savoir plus...](${prize.url})' : ''}'
+        '${prize.winner != null ? '\n    Récipiendaire : *${prize.winner}*' : ''}';
   }
 }
