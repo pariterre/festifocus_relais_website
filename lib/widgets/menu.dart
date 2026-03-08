@@ -2,11 +2,7 @@ import 'package:festifocus_relais_website/managers/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {
-  const Menu({
-    super.key,
-    required this.items,
-    required this.tabController,
-  });
+  const Menu({super.key, required this.items, required this.tabController});
 
   final List<String> items;
   final TabController tabController;
@@ -46,35 +42,41 @@ class _MenuState extends State<Menu> {
           controller: _scrollController,
           scrollDirection: Axis.horizontal,
           child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: widget.items
-                  .asMap()
-                  .keys
-                  .map((index) => _TabItem(
-                        title: widget.items[index],
-                        onTap: () {
-                          widget.tabController.animateTo(index);
-                          setState(() => _current = index);
-                        },
-                        isActive: index == _current,
-                      ))
-                  .toList()),
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: widget.items
+                .asMap()
+                .keys
+                .map(
+                  (index) => _TabItem(
+                    title: widget.items[index],
+                    onTap: () {
+                      widget.tabController.animateTo(index);
+                      setState(() => _current = index);
+                    },
+                    isActive: index == _current,
+                  ),
+                )
+                .toList(),
+          ),
         ),
         if (MediaQuery.of(context).size.width < 200 * widget.items.length)
           Positioned(
             left: 4.0,
             child: InkWell(
               onTap: () {
-                _scrollController.animateTo(_scrollController.offset - 80,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.ease);
+                _scrollController.animateTo(
+                  _scrollController.offset - 80,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.ease,
+                );
               },
               borderRadius: BorderRadius.circular(25),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white.withAlpha(125),
-                    borderRadius: BorderRadius.circular(25)),
+                  color: Colors.white.withAlpha(125),
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: const Icon(
                   Icons.keyboard_arrow_left_outlined,
                   color: Colors.black,
@@ -88,15 +90,18 @@ class _MenuState extends State<Menu> {
             right: 4.0,
             child: InkWell(
               onTap: () {
-                _scrollController.animateTo(_scrollController.offset + 80,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.ease);
+                _scrollController.animateTo(
+                  _scrollController.offset + 80,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.ease,
+                );
               },
               borderRadius: BorderRadius.circular(25),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white.withAlpha(125),
-                    borderRadius: BorderRadius.circular(25)),
+                  color: Colors.white.withAlpha(125),
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: const Icon(
                   Icons.keyboard_arrow_right_outlined,
                   color: Colors.black,
@@ -132,19 +137,21 @@ class _TabItem extends StatelessWidget {
         child: Card(
           elevation: 5,
           child: Container(
-              width: 180,
-              height: 60,
-              decoration: BoxDecoration(
-                  color: isActive
-                      ? tm.colorButtonSelected
-                      : tm.colorButtonUnselected),
-              child: Center(
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  textAlign: TextAlign.center,
-                ),
-              )),
+            width: 180,
+            height: 60,
+            decoration: BoxDecoration(
+              color: isActive
+                  ? tm.colorButtonSelected
+                  : tm.colorButtonUnselected,
+            ),
+            child: Center(
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
         ),
       ),
     );

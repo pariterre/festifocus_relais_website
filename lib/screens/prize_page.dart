@@ -152,7 +152,7 @@ class _PrizePageState extends State<PrizePage> {
         backgroundColor: tm.colorButtonSelected,
         title: const Text('Gagnants', style: TextStyle(color: Colors.black)),
         content: Text(
-          '${winner!.name} (Temps de visionnement : ${winner.totalWatchingTime ~/ 60} minutes})',
+          '${winner!.user.displayName} (Temps de visionnement : ${winner.totalWatchingTime ~/ 60} minutes})',
         ),
       ),
     );

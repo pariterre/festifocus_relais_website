@@ -83,10 +83,11 @@ class _AnimatedExpandingCardState extends State<AnimatedExpandingCard>
                   child: Icon(
                     _isExpanded ? Icons.expand_less : Icons.expand_more,
                     size: 30,
-                    color:
-                        _isExpanded ? widget.closedColor : widget.expandedColor,
+                    color: _isExpanded
+                        ? widget.closedColor
+                        : widget.expandedColor,
                   ),
-                )
+                ),
               ],
             ),
           ),

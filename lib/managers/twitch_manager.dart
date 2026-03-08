@@ -1,3 +1,5 @@
+import 'package:festifocus_relais_website/managers/chatters_manager.dart';
+import 'package:festifocus_relais_website/models/streamer.dart';
 import 'package:twitch_manager/twitch_app.dart';
 
 class TwitchManager {
@@ -9,7 +11,7 @@ class TwitchManager {
   late final TwitchDebugPanelOptions debugOptions;
   late final TwitchAppInfo appInfo;
   late final bool useMock;
-  final Map<String, TwitchAppManager> _managers = {};
+  final Map<Streamer, TwitchAppManager> _managers = {};
 
   void initialize({
     required TwitchDebugPanelOptions debugOptions,
@@ -21,29 +23,40 @@ class TwitchManager {
     this.useMock = useMock;
   }
 
-  List<String> get streamerIds => _managers.keys.toList();
+  List<Streamer> get streamers => [..._managers.keys];
+  List<String> get streamerIds => streamers.map((e) => e.userId).toList();
 
-  bool isStreamerInitialized(String id) => _managers[id]?.api != null;
+  bool isStreamerInitialized(Streamer streamer) =>
+      _managers[streamer]?.api != null;
 
-  Future<String> streamerLogin(String id) async =>
-      (await _managers[id]!.api.login(_managers[id]!.api.streamerId))!;
+  Future<bool> isStreamerLive(Streamer streamer) async =>
+      isStreamerInitialized(streamer) &&
+      (await _managers[streamer]!.api.isUserLive(userId: streamer.userId))!;
 
-  Future<bool> isStreamerLive(String id) async =>
-      isStreamerInitialized(id) &&
-      (await _managers[id]!.api.isUserLive(_managers[id]!.api.streamerId))!;
+  Future<Streamer?> streamerFromManager({
+    required TwitchAppManager manager,
+  }) async {
+    final user = await manager.api.user(userId: manager.api.streamerId);
+    return user == null ? null : Streamer.fromTwitchUser(user);
+  }
 
-  Future<List<String>?> fetchChatters(String id) async =>
-      (await _managers[id]!.api.fetchChatters());
+  Future<Iterable<TwitchUser>?> fetchChatters(Streamer streamer) async =>
+      (await _managers[streamer]!.api.fetchChatters());
 
-  Future<List<String>?> fetchFollowers(String id,
-          {bool includeStreamer = false}) async =>
-      (await _managers[id]!
-          .api
-          .fetchFollowers(includeStreamer: includeStreamer));
+  Future<Iterable<TwitchUser>?> fetchFollowers(
+    Streamer streamer, {
+    bool includeStreamer = false,
+  }) async => (await _managers[streamer]!.api.fetchFollowers(
+    includeStreamer: includeStreamer,
+  ));
 
-  Future<void> addStreamer(
-          {required String id, required TwitchAppManager manager}) async =>
-      _managers[id] = manager;
+  void addStreamer({
+    required Streamer streamer,
+    required TwitchAppManager manager,
+  }) {
+    _managers[streamer] = manager;
+    ChattersManager.instance.updateStreamerInfo(streamer);
+  }
 }
 
 class TwitchManagerMock extends TwitchManager {
@@ -62,27 +75,69 @@ class TwitchManagerMock extends TwitchManager {
     if (!useMock) throw Exception('Cannot use mock with a non-mock manager');
 
     super.initialize(
-        debugOptions: debugOptions, appInfo: appInfo, useMock: useMock);
+      debugOptions: debugOptions,
+      appInfo: appInfo,
+      useMock: useMock,
+    );
+  }
+
+  static int _streamerFromManagerCounter = 0;
+  @override
+  Future<Streamer?> streamerFromManager({
+    required TwitchAppManager manager,
+  }) async {
+    _streamerFromManagerCounter++;
+
+    final user = await super.streamerFromManager(manager: manager);
+    return user == null
+        ? null
+        : Streamer(
+            displayName: '${user.displayName}_$_streamerFromManagerCounter',
+            login: '${user.login}_$_streamerFromManagerCounter',
+            userId: '${user.userId}_$_streamerFromManagerCounter',
+          );
   }
 
   @override
-  List<String> get streamerIds => ['Me', 'You'];
+  bool isStreamerInitialized(Streamer streamer) => true;
 
   @override
-  bool isStreamerInitialized(String id) => true;
+  Future<bool> isStreamerLive(Streamer streamer) async =>
+      streamer.login == 'me';
 
   @override
-  Future<String> streamerLogin(String id) async => 'MockStreamer$id';
+  Future<Iterable<TwitchUser>?> fetchChatters(Streamer streamer) async => [
+    TwitchUser(
+      userId: '00000001',
+      login: 'mockchatter1',
+      displayName: 'MockChatter1',
+    ),
+    TwitchUser(
+      userId: '00000002',
+      login: 'mockchatter2',
+      displayName: 'MockChatter2',
+    ),
+    TwitchUser(
+      userId: '00000003',
+      login: 'mockchatter3',
+      displayName: 'MockChatter3',
+    ),
+  ];
 
   @override
-  Future<bool> isStreamerLive(String id) async => id == 'Me';
-
-  @override
-  Future<List<String>?> fetchChatters(String id) async =>
-      ['MockChatter1', 'MockChatter2', 'MockChatter3'];
-
-  @override
-  Future<List<String>?> fetchFollowers(String id,
-          {bool includeStreamer = false}) async =>
-      ['MockChatter1', 'MockChatter2'];
+  Future<Iterable<TwitchUser>?> fetchFollowers(
+    Streamer streamer, {
+    bool includeStreamer = false,
+  }) async => [
+    TwitchUser(
+      userId: '00000001',
+      login: 'mockfollower1',
+      displayName: 'MockFollower1',
+    ),
+    TwitchUser(
+      userId: '00000002',
+      login: 'mockfollower2',
+      displayName: 'MockFollower2',
+    ),
+  ];
 }

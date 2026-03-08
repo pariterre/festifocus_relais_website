@@ -1,9 +1,11 @@
 import 'package:festifocus_relais_website/models/item_serializable.dart';
+import 'package:festifocus_relais_website/models/twitch_user_extension.dart';
+import 'package:twitch_manager/twitch_app.dart';
 
 class Chatter implements ItemSerializable {
-  final String name;
+  final TwitchUser user;
   @override
-  String get id => name;
+  String get id => user.userId;
 
   // _duration and _fromStreamers is expected to always be in sync
   bool isBanned;
@@ -15,34 +17,38 @@ class Chatter implements ItemSerializable {
     return _watchTimes[of] ?? -1;
   }
 
-  List<String> get streamerNames => [..._watchTimes.keys];
+  Iterable<String> get streamerIds => [..._watchTimes.keys];
 
-  void addStreamer(String streamerName) => _watchTimes[streamerName] = 0;
+  void addStreamer(String streamerId) => _watchTimes[streamerId] = 0;
 
   void incrementTimeWatching(int deltaTime, {required String of}) {
-    if (!hasStreamer(of)) addStreamer(of);
+    if (!hasViewedStreamer(of)) addStreamer(of);
     _watchTimes[of] = _watchTimes[of]! + deltaTime;
   }
 
   bool get isEmpty => _watchTimes.isEmpty;
   bool get isNotEmpty => !isEmpty;
 
-  bool hasStreamer(String streamerName) =>
-      _watchTimes.containsKey(streamerName);
-  bool hasNotStreamer(String streamerName) => !hasStreamer(streamerName);
+  bool hasViewedStreamer(String streamerId) =>
+      _watchTimes.containsKey(streamerId);
+  bool hasNotViewedStreamer(String streamerId) =>
+      !hasViewedStreamer(streamerId);
 
-  Chatter({required this.name})
-      : isBanned = false,
-        _watchTimes = {};
+  Chatter({required this.user}) : isBanned = false, _watchTimes = {};
 
-  Chatter.fromSerialized(id, map)
-      : name = id,
-        isBanned = map['isBanned'] ?? false,
-        _watchTimes = (map['watchTimes'] as Map?)
-                ?.map((key, value) => MapEntry(key as String, value as int)) ??
-            {};
+  Chatter.fromSerialized(Map<String, dynamic> map)
+    : user = TwitchUserExtension.fromSerialized(map['user']),
+      isBanned = map['is_banned'] ?? false,
+      _watchTimes =
+          (map['watch_times'] as Map?)?.map(
+            (key, value) => MapEntry(key, value as int),
+          ) ??
+          {};
 
   @override
-  Map<String, dynamic> get serializedMap =>
-      {'isBanned': isBanned, 'watchTimes': _watchTimes};
+  Map<String, dynamic> get serializedMap => {
+    'user': user.serialized,
+    'is_banned': isBanned,
+    'watch_times': _watchTimes.map((key, value) => MapEntry(key, value)),
+  };
 }

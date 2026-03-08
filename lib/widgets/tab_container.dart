@@ -13,8 +13,10 @@ class TabContainer extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal:
-                windowWidth > maxWidth + 36 ? (windowWidth - maxWidth) / 2 : 0),
+          horizontal: windowWidth > maxWidth + 36
+              ? (windowWidth - maxWidth) / 2
+              : 0,
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 36.0 / 2),
           child: child,

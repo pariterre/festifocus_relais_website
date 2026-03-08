@@ -40,8 +40,9 @@ class _AdministrationLoginPageState extends State<AdministrationLoginPage> {
         if (!mounted) return;
         Navigator.of(context).pushNamed(ConnectStreamersPage.route);
       } catch (e) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Connexion échouée')));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('Connexion échouée')));
       }
     }
   }
@@ -58,9 +59,11 @@ class _AdministrationLoginPageState extends State<AdministrationLoginPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text('Connexion à l\'administration de la base de donnée',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24)),
+                const Text(
+                  'Connexion à l\'administration de la base de donnée',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24),
+                ),
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Courriel'),
                   keyboardType: TextInputType.emailAddress,
@@ -70,8 +73,9 @@ class _AdministrationLoginPageState extends State<AdministrationLoginPage> {
                     }
 
                     // If the provided email is not valid using the regex pattern
-                    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                        .hasMatch(value)) {
+                    if (!RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    ).hasMatch(value)) {
                       return 'SVP entrez un courriel valide';
                     }
 

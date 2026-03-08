@@ -101,77 +101,102 @@ class _ChatterTile extends StatelessWidget {
 
     return chatter.isEmpty || (chatter.isBanned && !isAdmistration)
         ? Container()
-        : AnimatedExpandingCard(
-            expandedColor: chatter.isBanned
-                ? Colors.white
-                : tm.colorButtonSelected,
-            closedColor: chatter.isBanned
-                ? Colors.white
-                : tm.colorButtonUnselected,
-            header: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    chatter.name,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Text(
-                    'Participation : $watchingTime minute${watchingTime > 1 ? 's' : ''}',
-                  ),
-                  if (isAdmistration)
-                    InkWell(
-                      onTap: () =>
-                          ChattersManager.instance.toggleIsBan(chatter),
-                      borderRadius: BorderRadius.circular(25),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        height: 40,
-                        width: 40,
-                        child: Icon(
-                          chatter.isBanned ? Icons.person_off : Icons.person,
-                        ),
-                      ),
-                    ),
-                ],
+        : FutureBuilder(
+            future: Future.wait(
+              chatter.streamerIds.map(
+                (id) => ChattersManager.instance.fetchStreamerInfo(id),
               ),
             ),
-            builder: (context, isExpanded) => isExpanded
-                ? Padding(
-                    padding: const EdgeInsets.only(
-                      left: 12.0,
-                      right: 12.0,
-                      bottom: 12.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Par chaîne',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        ...chatter.streamerNames.map((streamer) {
-                          final watchingStreamer =
-                              chatter.watchingTime(of: streamer) ~/ 60;
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(color: tm.primaryColor),
+                );
+              }
+              final streamers = snapshot.data as List?;
+              if (streamers == null) {
+                return const Text(
+                  'Erreur lors du chargement des informations du streamer',
+                );
+              }
 
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(streamer),
-                              Text(
-                                '$watchingStreamer minute${watchingStreamer > 1 ? 's' : ''}',
-                              ),
-                            ],
-                          );
-                        }),
-                      ],
-                    ),
-                  )
-                : Container(),
+              return AnimatedExpandingCard(
+                expandedColor: chatter.isBanned
+                    ? Colors.white
+                    : tm.colorButtonSelected,
+                closedColor: chatter.isBanned
+                    ? Colors.white
+                    : tm.colorButtonUnselected,
+                header: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        chatter.user.displayName,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      Text(
+                        'Participation : $watchingTime minute${watchingTime > 1 ? 's' : ''}',
+                      ),
+                      if (isAdmistration)
+                        InkWell(
+                          onTap: () =>
+                              ChattersManager.instance.toggleIsBan(chatter),
+                          borderRadius: BorderRadius.circular(25),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            height: 40,
+                            width: 40,
+                            child: Icon(
+                              chatter.isBanned
+                                  ? Icons.person_off
+                                  : Icons.person,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                builder: (context, isExpanded) => isExpanded
+                    ? Padding(
+                        padding: const EdgeInsets.only(
+                          left: 12.0,
+                          right: 12.0,
+                          bottom: 12.0,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Par chaîne',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            ...streamers.map((streamer) {
+                              final watchingStreamer =
+                                  chatter.watchingTime(of: streamer.userId) ~/
+                                  60;
+
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(streamer.displayName),
+                                  Text(
+                                    '$watchingStreamer minute${watchingStreamer > 1 ? 's' : ''}',
+                                  ),
+                                ],
+                              );
+                            }),
+                          ],
+                        ),
+                      )
+                    : Container(),
+              );
+            },
           );
   }
 }

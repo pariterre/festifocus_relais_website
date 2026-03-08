@@ -15,6 +15,7 @@ class ConnectStreamersPage extends StatefulWidget {
 
 class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
   final List<TextEditingController> _streamerControllers = [];
+  final Map<TextEditingController, bool> _isStreamerConnected = {};
 
   @override
   void initState() {
@@ -24,58 +25,71 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
 
   Future<void> _reloadStreamers() async {
     final preferences = await SharedPreferences.getInstance();
-    final listOfStreamers = preferences.getStringList('streamers') ?? [];
-    for (final streamer in listOfStreamers) {
-      _addStreamerToControllers(streamer);
+    final listOfStreamerNames = preferences.getStringList('streamers') ?? [];
+    for (final streamerName in listOfStreamerNames) {
+      _addStreamerToControllers(streamerName);
     }
 
     setState(() {});
   }
 
-  void _addStreamerToControllers([String? id]) {
-    _streamerControllers.add(
-        TextEditingController(text: id)..addListener(() => _saveStreamers()));
+  void _addStreamerToControllers([String? streamerName]) {
+    final controller = TextEditingController(text: streamerName)
+      ..addListener(() => _saveStreamers());
+
+    _streamerControllers.add(controller);
+    _isStreamerConnected[controller] = false;
   }
 
   @override
   void dispose() {
+    _isStreamerConnected.clear();
     for (final controller in _streamerControllers) {
       controller.dispose();
     }
+    _streamerControllers.clear();
     super.dispose();
   }
 
   Future<void> _saveStreamers() async {
     final preferences = await SharedPreferences.getInstance();
-    final listOfStreamers = <String>[];
+    final listOfStreamerNames = <String>[];
     for (final controller in _streamerControllers) {
       if (controller.text.isEmpty) continue;
-      listOfStreamers.add(controller.text);
+      listOfStreamerNames.add(controller.text);
     }
-    preferences.setStringList('streamers', listOfStreamers);
+    preferences.setStringList('streamers', listOfStreamerNames);
   }
 
-  void _connectStreamer({required String saveId}) async {
+  void _connectStreamer({required String streamerName}) async {
     final manager = await showTwitchAppAuthenticationDialog(
       context,
       appInfo: TwitchManager.instance.appInfo,
-      onConnexionEstablished: (manager) => Navigator.pop(context, manager),
-      onCancelConnexion: () => Navigator.pop(context),
       reload: true,
-      saveKey: saveId,
+      saveKey: streamerName,
       useMocker: TwitchManager.instance.useMock,
       debugPanelOptions: TwitchManager.instance.debugOptions,
     );
     if (!mounted || manager == null) return;
 
-    await TwitchManager.instance.addStreamer(id: saveId, manager: manager);
+    final streamer = await TwitchManager.instance.streamerFromManager(
+      manager: manager,
+    );
+    if (streamer == null) return;
+
+    TwitchManager.instance.addStreamer(streamer: streamer, manager: manager);
+    final controller = _streamerControllers.firstWhere(
+      (controller) => controller.text == streamerName,
+    );
+    _isStreamerConnected[controller] = true;
+    await _saveStreamers();
     if (!mounted) return;
 
-    _saveStreamers();
     if (_streamerControllers.isNotEmpty &&
-        TwitchManager.instance.streamerIds.length ==
+        TwitchManager.instance.streamers.length ==
             _streamerControllers.length) {
       Navigator.of(context).pushReplacementNamed(MainPage.route);
+      return;
     }
     setState(() {});
   }
@@ -92,10 +106,9 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
               const SizedBox(height: 24),
               Text(
                 'Connect the streamers',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(color: Colors.black),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium!.copyWith(color: Colors.black),
               ),
               const SizedBox(height: 12),
               for (int i = 0; i < _streamerControllers.length; i++)
@@ -113,14 +126,19 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Add a streamer',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+        const Text(
+          'Add a streamer',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
         const SizedBox(width: 12),
         InkWell(
           borderRadius: BorderRadius.circular(25),
           onTap: () => setState(() => _addStreamerToControllers()),
-          child: const Icon(Icons.add_circle_outlined,
-              color: Colors.green, size: 35),
+          child: const Icon(
+            Icons.add_circle_outlined,
+            color: Colors.green,
+            size: 35,
+          ),
         ),
       ],
     );
@@ -131,23 +149,27 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         SizedBox(
-            width: 350,
-            child: TextField(
-              decoration: const InputDecoration(labelText: 'Streamer save id'),
-              controller: _streamerControllers[streamerIndex],
-            )),
+          width: 350,
+          child: TextField(
+            decoration: const InputDecoration(labelText: 'Streamer save id'),
+            controller: _streamerControllers[streamerIndex],
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               ElevatedButton(
-                  onPressed: TwitchManager.instance.streamerIds
-                          .contains(_streamerControllers[streamerIndex].text)
-                      ? null
-                      : () => _connectStreamer(
-                          saveId: _streamerControllers[streamerIndex].text),
-                  child: Text('Connect streamer ${streamerIndex + 1}')),
+                onPressed:
+                    _isStreamerConnected[_streamerControllers[streamerIndex]] ==
+                        true
+                    ? null
+                    : () => _connectStreamer(
+                        streamerName: _streamerControllers[streamerIndex].text,
+                      ),
+                child: Text('Connect streamer ${streamerIndex + 1}'),
+              ),
               const SizedBox(width: 4),
               InkWell(
                 borderRadius: BorderRadius.circular(25),
@@ -158,12 +180,9 @@ class _ConnectStreamersPageState extends State<ConnectStreamersPage> {
                 child: const SizedBox(
                   width: 35,
                   height: 35,
-                  child: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  ),
+                  child: Icon(Icons.delete, color: Colors.red),
                 ),
-              )
+              ),
             ],
           ),
         ),

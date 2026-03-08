@@ -12,7 +12,7 @@ mixin CustomListener<T extends Function> {
     }
   }
 
-  void notifyListenersWithParameter(parameter) {
+  void notifyListenersWithParameter(dynamic parameter) {
     for (final callback in _listeners) {
       callback(parameter);
     }

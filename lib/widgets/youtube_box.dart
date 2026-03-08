@@ -20,12 +20,13 @@ class YoutubeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final width = boxWidth ?? constraints.maxWidth;
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FutureBuilder(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = boxWidth ?? constraints.maxWidth;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FutureBuilder(
               future: DeviceInfoPlugin().webBrowserInfo,
               builder: (context, snapshot) {
                 // Firefox does not support the youtube player nor that it
@@ -35,7 +36,8 @@ class YoutubeBox extends StatelessWidget {
                 if (browserInfo == null || browserInfo == BrowserName.firefox) {
                   return GestureDetector(
                     onTap: () => launchUrl(
-                        Uri.parse('https://www.youtube.com/watch?v=$videoId')),
+                      Uri.parse('https://www.youtube.com/watch?v=$videoId'),
+                    ),
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Stack(
@@ -53,8 +55,9 @@ class YoutubeBox extends StatelessWidget {
                             height: 40,
                             width: 40,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(50)),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
                           ),
                           Positioned.fill(
                             child: Align(
@@ -74,12 +77,15 @@ class YoutubeBox extends StatelessWidget {
                 }
 
                 return SizedBox(
-                    width: width * widthRatio,
-                    child: YoutubePlayer(controller: controller));
-              }),
-          SizedBox(width: width)
-        ],
-      );
-    });
+                  width: width * widthRatio,
+                  child: YoutubePlayer(controller: controller),
+                );
+              },
+            ),
+            SizedBox(width: width),
+          ],
+        );
+      },
+    );
   }
 }

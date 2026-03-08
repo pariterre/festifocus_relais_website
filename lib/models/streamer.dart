@@ -1,15 +1,16 @@
-class Streamer {
-  final String id;
-  final String name;
+import 'package:twitch_manager/twitch_app.dart';
 
-  Streamer({required this.id, required this.name});
+class Streamer extends TwitchUser {
+  const Streamer({
+    required super.userId,
+    required super.login,
+    required super.displayName,
+  });
 
-  Streamer.fromSerialized(map)
-      : id = map['id'],
-        name = map['name'];
-
-  Map<String, dynamic> serializedMap() => {
-        'id': id,
-        'name': name,
-      };
+  Streamer.fromTwitchUser(TwitchUser user)
+    : super(
+        userId: user.userId,
+        login: user.login,
+        displayName: user.displayName,
+      );
 }

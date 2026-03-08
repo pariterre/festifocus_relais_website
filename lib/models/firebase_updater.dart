@@ -11,7 +11,7 @@ abstract mixin class FirebaseUpdater<T extends ItemSerializable> {
   bool _isInitialized = false;
   final Map<String, Map<String, dynamic>> _pendingItems = {};
 
-  T deserialize(String id, Map<String, dynamic> map);
+  T deserialize(Map<String, dynamic> map);
 
   void updateAllItems(List<T> items);
 
@@ -21,7 +21,8 @@ abstract mixin class FirebaseUpdater<T extends ItemSerializable> {
         final data = doc.data()!['all'] as Map<String, dynamic>?;
         if (data == null) return;
         updateAllItems(
-            data.keys.map((key) => deserialize(key, data[key]!)).toList());
+          data.keys.map((key) => deserialize(data[key]!)).toList(),
+        );
       }
     });
 
@@ -29,20 +30,25 @@ abstract mixin class FirebaseUpdater<T extends ItemSerializable> {
       // Serialize the current item and update the new value
       if (querySnapshot.docChanges.isEmpty) return;
 
-      final data = querySnapshot.docChanges[0].doc.data()?['all']
-          as Map<String, dynamic>?;
+      final data =
+          querySnapshot.docChanges[0].doc.data()?['all']
+              as Map<String, dynamic>?;
       if (data == null) return;
 
-      updateAllItems(
-          data.keys.map((key) => deserialize(key, data[key]!)).toList());
+      try {
+        final items = data.keys.map((key) => deserialize(data[key]!)).toList();
+        updateAllItems(items);
+      } catch (_) {
+        return;
+      }
     });
 
     Timer.periodic(updateInterval, (timer) async {
       if (_pendingItems.isEmpty) return;
 
-      await _dataRef
-          .doc('results')
-          .set({'all': _pendingItems}, SetOptions(merge: true));
+      await _dataRef.doc('results').set({
+        'all': _pendingItems,
+      }, SetOptions(merge: true));
       _pendingItems.clear();
     });
     _isInitialized = true;
@@ -53,7 +59,8 @@ abstract mixin class FirebaseUpdater<T extends ItemSerializable> {
   void setToDatabase(T value) async {
     if (!_isInitialized) {
       throw Exception(
-          'The FirebaseUpdater is not initialized. Please call initialize() before using it.');
+        'The FirebaseUpdater is not initialized. Please call initialize() before using it.',
+      );
     }
 
     final map = value.serializedMap;
