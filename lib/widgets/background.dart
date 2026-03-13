@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:festifocus_relais_website/managers/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
@@ -10,151 +9,86 @@ class Background extends StatelessWidget {
   final Widget child;
 
   final List<(String, double)> _images = const [
-    ('leaf1', 50),
-    ('leaf1', 60),
-    ('leaf2', 60),
-    ('leaf2', 80),
-    ('leaf3', 85),
-    ('leaf3', 105),
-    ('leaf3', 120),
-    ('leaf4', 135),
-    ('leaf4', 150),
-    ('leaf5', 110),
-    ('leaf5', 140),
-    ('leaf6', 100),
-    ('leaf7', 110),
-    ('leaf8', 90),
-    ('leaf9', 110),
-    ('leaf9', 130),
-    ('leaf10', 60),
-    ('leaf10', 90),
-    ('small_nut', 35),
-    ('small_nut', 50),
-    ('big_nut', 70),
-    ('big_nut', 80),
-    ('small_green', 50),
-    ('small_green', 70),
-    ('small_green', 90),
-    ('big_green', 110),
-    ('big_green', 130),
-    ('big_red', 130),
-    ('big_red', 150),
-    ('big_red', 170),
-    ('small_pink', 90),
-    ('small_pink', 110),
-    ('small_pink', 130),
-    ('big_pink', 110),
-    ('big_pink', 130),
-    ('big_pink', 150),
-    ('small_yellow', 80),
-    ('small_yellow', 100),
-    ('small_yellow', 120),
-    ('big_yellow', 90),
-    ('big_yellow', 110),
-    ('big_yellow', 130),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
-    ('chaudron', 200),
+    ('coin1', 50),
+    ('coin1', 70),
+    ('coin1', 130),
+    ('coin2', 50),
+    ('coin2', 90),
+    ('coin2', 130),
+    ('coin2', 130),
+    ('coin3', 70),
+    ('coin3', 90),
+    ('coin3', 110),
+    ('coin4', 50),
+    ('coin4', 70),
+    ('coin4', 90),
+    ('coin4', 110),
+    ('coin4', 130),
+    ('coin4', 130),
+    ('coin5', 70),
+    ('coin5', 110),
+    ('coin6', 50),
+    ('coin6', 70),
+    ('coin6', 90),
+    ('coin6', 110),
+    ('elf1', 50),
+    ('elf1', 70),
+    ('elf1', 90),
+    ('elf1', 110),
+    ('elf2', 50),
+    ('elf2', 70),
+    ('elf2', 90),
+    ('elf2', 110),
+    ('clover1', 50),
+    ('clover1', 70),
+    ('clover1', 90),
+    ('clover2', 70),
+    ('clover2', 90),
+    ('clover2', 130),
+    ('clover3', 50),
+    ('clover3', 90),
+    ('clover3', 130),
+    ('pot1', 200),
+    ('pot1', 200),
+    ('pot2', 200),
+    ('pot2', 200),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return _GradientRotatingBackground(
-      child: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          fit: StackFit.loose,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
-            ..._images.map((e) => _MovingImage(e.$1, width: e.$2)),
-            child,
-            Positioned(
-              top: 30,
-              child: LayoutBuilder(
-                builder: (context, constraints) => Center(
-                  child: SizedBox(
-                    width: min(650, MediaQuery.of(context).size.width * 0.8),
-                    height: 90,
-                    child: Image.asset('assets/images/title.png'),
-                  ),
+    return Container(
+      color: Colors.black87,
+      child: Stack(
+        alignment: Alignment.center,
+        fit: StackFit.loose,
+        children: [
+          Image.asset(
+            'assets/images/background.jpg',
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover,
+            opacity: const AlwaysStoppedAnimation(0.7),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+          ),
+          ..._images.map((e) => _MovingImage(e.$1, width: e.$2)),
+          child,
+          Positioned(
+            top: 30,
+            child: LayoutBuilder(
+              builder: (context, constraints) => Center(
+                child: SizedBox(
+                  width: min(650, MediaQuery.of(context).size.width * 0.8),
+                  height: 90,
+                  child: Image.asset('assets/images/title.png'),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
-}
-
-class _GradientRotatingBackground extends StatefulWidget {
-  const _GradientRotatingBackground({this.child});
-
-  final Widget? child;
-
-  @override
-  State<_GradientRotatingBackground> createState() =>
-      _GradientRotatingBackgroundState();
-}
-
-class _GradientRotatingBackgroundState
-    extends State<_GradientRotatingBackground>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 60),
-    vsync: this,
-  )..repeat(reverse: true);
-  late final Animation<Decoration> _animation =
-      DecorationTween(
-        begin: BoxDecoration(
-          gradient: LinearGradient(
-            //stops: const [0, 0.5, 1.0],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomLeft,
-            colors: [
-              ThemeManager.instance.primaryColor,
-              ThemeManager.instance.secondaryColor,
-              ThemeManager.instance.secondaryColor,
-            ],
-          ),
-        ),
-        end: BoxDecoration(
-          gradient: LinearGradient(
-            //stops: const [0, 0.5, 1.0],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomRight,
-            colors: [
-              ThemeManager.instance.primaryColor,
-              ThemeManager.instance.secondaryColor,
-              ThemeManager.instance.secondaryColor,
-            ],
-          ),
-        ),
-      ).animate(_controller)..addListener(() {
-        setState(() {});
-      });
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: _animation.value,
-      width: MediaQuery.of(context).size.width,
-      child: widget.child,
     );
   }
 }

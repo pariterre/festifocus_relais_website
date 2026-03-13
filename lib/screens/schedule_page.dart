@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:festifocus_relais_website/managers/schedule_manager.dart';
 import 'package:festifocus_relais_website/managers/theme_manager.dart';
 import 'package:festifocus_relais_website/models/schedule_info.dart';
@@ -120,7 +122,7 @@ class _StreamerTile extends StatelessWidget {
 
     final now = DateTime.now();
 
-    final startingTime = info.starting.add(Duration(hours: fromFrance ? 6 : 0));
+    final startingTime = info.starting.add(Duration(hours: fromFrance ? 5 : 0));
     final endingTime = startingTime.add(info.length);
     final isActive =
         now.compareTo(startingTime) > 0 && now.compareTo(endingTime) < 0;
@@ -137,38 +139,60 @@ class _StreamerTile extends StatelessWidget {
                     : tm.colorButtonUnselected,
                 borderRadius: BorderRadius.circular(8),
               ),
-              width: constraints.maxWidth * 3 / 4,
+              width: min(500, constraints.maxWidth),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      info.title,
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24.0),
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(dateFormat.format(startingTime)),
-                          if (info.url != null)
-                            InkWell(
-                              onTap: () {
-                                launchUrl(Uri.parse(info.url!));
-                              },
-                              child: Text(
-                                info.url!,
-                                style: const TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.black,
-                                ),
-                              ),
+                          Text(
+                            info.title,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(dateFormat.format(startingTime)),
+                                if (info.url != null)
+                                  InkWell(
+                                    onTap: () {
+                                      launchUrl(Uri.parse(info.url!));
+                                    },
+                                    child: Text(
+                                      info.url!,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                              ],
                             ),
+                          ),
                         ],
                       ),
                     ),
+                    if (info.avatarUrl != null)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 12.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(25),
+                          child: Image.network(
+                            info.avatarUrl!,
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),

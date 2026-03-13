@@ -53,24 +53,41 @@ class _StreamerCard extends StatelessWidget {
       closedColor: tm.colorButtonUnselected,
       header: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            Text(
-              streamerInfo.name,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            InkWell(
-              onTap: () {
-                launchUrl(Uri.parse(streamerInfo.twitchUrl));
-              },
-              child: Text(
-                streamerInfo.twitchUrl,
-                style: const TextStyle(
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.black,
+            if (streamerInfo.avatarUrl != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: Image.network(
+                    streamerInfo.avatarUrl!,
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  streamerInfo.name,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                InkWell(
+                  onTap: () {
+                    launchUrl(Uri.parse(streamerInfo.twitchUrl));
+                  },
+                  child: Text(
+                    streamerInfo.twitchUrl,
+                    style: const TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

@@ -21,11 +21,7 @@ class MysteryEventPage extends StatelessWidget {
             data: '''
 # ACTIVITÉ MYSTÈRE
 
-Pour cette édition du FestiFocus, j'ai décidé d'honorer le contrat que j'ai fait avec ma communauté il y a plus d'un an, soit écouter la vidéo de moi enfant qui danse la lambada!
-
-Pour l'occasion, j'en profite pour honorer un second contrat, cuisiner avec vous une tarte aux bleuets! 
-
-Soyez donc des nôtres pour ce moment détente au milieu de l'activité de coworking. On va bien s'amuser!
+À venir!
 ''',
           ),
           SizedBox(height: MediaQuery.of(context).size.height - 375),

@@ -4,6 +4,7 @@ class StreamerInfo {
   final String twitchUrl;
   final String? personalWebSite;
   final String? presentationYoutubeId;
+  final String? avatarUrl;
 
   StreamerInfo(
     this.name, {
@@ -11,5 +12,6 @@ class StreamerInfo {
     required this.twitchUrl,
     this.personalWebSite,
     this.presentationYoutubeId,
+    this.avatarUrl,
   });
 }
