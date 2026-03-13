@@ -41,7 +41,7 @@ Finalement, un grand merci à tous les auditeurs et toutes les auditrices pour v
                 // ${cm.prizes.asMap().keys.map((index) => _prizeToText(index: index, prize: cm.prizes[index])).join('\n')}
                 '''## Crédits
 Site web réalisé par Benjamin Michaud.
-Matériel visuel réalisé par May.
+Matériel visuel réalisé par May (Instagram : [@bisousbaveux_](https://www.instagram.com/bisousbaveux_)).
 ''',
           ),
           SizedBox(height: MediaQuery.of(context).size.height - 375),
