@@ -86,7 +86,7 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
     StreamerInfo(
       'skitty_aelcademia',
       description:
-          '''Coworking en direct & projets numériques👩🏼‍💻 React d’émissions Tech｜Documentaires 📺 Et quelques pauses gaming de temps en temps 🎮''',
+          '''Coworking en direct & projets numériques👩🏼‍💻Boutique en ligne (korrikami.fr) sur le thème de la Fantasy 🐲 React d’émissions Tech｜Documentaires 📺 Et quelques pauses gaming de temps en temps 🎮''',
       twitchUrl: 'https://twitch.tv/skitty_aelcademia',
       avatarUrl:
           'https://static-cdn.jtvnw.net/jtv_user_pictures/7a1ebb73-0efe-4488-8c96-27bfb9a03e3b-profile_image-300x300.png',
