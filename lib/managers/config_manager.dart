@@ -21,12 +21,13 @@ class ConfigManager {
   ///
   final streamersInfo = [
     StreamerInfo(
-      'DaejeeTV',
-      description:
-          '''*ೃ༄ 🍃French artist🌻 La légende raconte que je dessine ... et que j'aime les tournesols !''',
-      twitchUrl: 'https://twitch.tv/daejeetv',
+      'Tiff4win',
+      description: '''Co-workeuse à mes heures perdues
+
+''',
+      twitchUrl: 'https://twitch.tv/tiff4win',
       avatarUrl:
-          'https://static-cdn.jtvnw.net/jtv_user_pictures/0d4d23e5-dc39-45c4-a724-e6a8384c63c2-profile_image-300x300.png',
+          'https://static-cdn.jtvnw.net/jtv_user_pictures/a5ad3d8f-60e6-4f4c-a934-a3a12187e6fd-profile_image-300x300.png',
     ),
     StreamerInfo(
       'deb_auteur_ice_',
@@ -84,12 +85,12 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
           'https://static-cdn.jtvnw.net/jtv_user_pictures/d38890eb-b9fc-45da-8152-1b574abfc1a6-profile_image-300x300.png',
     ),
     StreamerInfo(
-      'skitty_aelcademia',
+      'BaleineLunaire',
       description:
-          '''Coworking en direct & projets numériques👩🏼‍💻Boutique en ligne (korrikami.fr) sur le thème de la Fantasy 🐲 React d’émissions Tech｜Documentaires 📺 Et quelques pauses gaming de temps en temps 🎮''',
-      twitchUrl: 'https://twitch.tv/skitty_aelcademia',
+          '''Salut, moi c’est Baleine 🐳 Graphiste freelance, j’adore parler design, patins à roulettes & tartiflette (mes 3 passions). J'ai codé un overlay 100% interactif pour qu’on bosse ensemble en coworking 💪Tu veux une graphiste colorée & cool qui va comprendre ton projet ? Suis mes liens & écris-moi ✨''',
+      twitchUrl: 'https://twitch.tv/baleinelunaire',
       avatarUrl:
-          'https://static-cdn.jtvnw.net/jtv_user_pictures/7a1ebb73-0efe-4488-8c96-27bfb9a03e3b-profile_image-300x300.png',
+          'https://static-cdn.jtvnw.net/jtv_user_pictures/7eb00392-a019-4679-a2e1-70537188eadb-profile_image-300x300.png',
     ),
     StreamerInfo(
       'Solveig_L_HEVEDER',

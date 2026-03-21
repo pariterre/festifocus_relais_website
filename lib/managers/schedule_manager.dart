@@ -28,12 +28,12 @@ class ScheduleManager {
       length: const Duration(minutes: 45),
     ),
     ScheduleInfo(
-      title: 'Coworking avec DaejeeTV',
-      url: 'https://twitch.tv/daejeetv',
+      title: 'Coworking avec Tiff4win',
+      url: 'https://twitch.tv/tiff4win',
       starting: DateTime(2026, 3, 25, 9, 0),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'DaejeeTV')
+          .firstWhere((element) => element.name == 'Tiff4win')
           .avatarUrl,
     ),
     ScheduleInfo(
@@ -205,12 +205,12 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Coworking avec skitty_aelcademia',
-      url: 'https://twitch.tv/skitty_aelcademia',
+      title: 'Coworking avec BaleineLunaire',
+      url: 'https://twitch.tv/baleinelunaire',
       starting: DateTime(2026, 3, 27, 9, 0),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'skitty_aelcademia')
+          .firstWhere((element) => element.name == 'BaleineLunaire')
           .avatarUrl,
     ),
     ScheduleInfo(
