@@ -72,6 +72,7 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
       description:
           '''Finissante au bacc en nutrition, je prône la simplicité et une approche sans pression. Entre cooking streams, coworking et jasettes autour de sujets chauds, je rends la nutrition accessible et humaine!''',
       twitchUrl: 'https://twitch.tv/nutritionsanspression',
+      presentationYoutubeId: 'gVNHrOqCEkk',
       avatarUrl:
           'https://static-cdn.jtvnw.net/jtv_user_pictures/34296c06-ed8e-45d9-b614-a782443b7e49-profile_image-300x300.jpeg',
     ),
