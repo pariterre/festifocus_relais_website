@@ -3,7 +3,7 @@
 PROJECTS := festifocus festifocus_admin
 
 # Folders to keep during web server cleanup
-FOLDER_TO_KEEP := .well-known cgi-bin resources
+FOLDER_TO_KEEP := .well-known cgi-bin resources archives
 
 # Internal variables
 BASE_FOLDER := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))

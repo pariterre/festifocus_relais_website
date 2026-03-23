@@ -49,8 +49,10 @@ class _ViewersPageState extends State<ViewersPage> {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 12),
-          _buildChattersListTile(context),
-          SizedBox(height: MediaQuery.of(context).size.height - 375),
+          SizedBox(
+            height: MediaQuery.of(context).size.height - 250,
+            child: _buildChattersListTile(context),
+          ),
         ],
       ),
     );
@@ -74,15 +76,12 @@ class _ViewersPageState extends State<ViewersPage> {
         ? Center(child: CircularProgressIndicator(color: tm.primaryColor))
         : (sortedChatters.isEmpty
               ? const Text('Aucun auditeur ou auditrice pour l\'instant')
-              : Column(
-                  children: sortedChatters
-                      .map(
-                        (e) => _ChatterTile(
-                          chatter: e,
-                          isAdmistration: widget.isAdmistration,
-                        ),
-                      )
-                      .toList(),
+              : ListView.builder(
+                  itemCount: sortedChatters.length,
+                  itemBuilder: (context, index) => _ChatterTile(
+                    chatter: sortedChatters[index],
+                    isAdmistration: widget.isAdmistration,
+                  ),
                 ));
   }
 }
