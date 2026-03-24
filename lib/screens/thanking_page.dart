@@ -35,11 +35,12 @@ Un merci tout spécial à May pour la production du magnifique matériel visuel 
 Et évidemment un doux et précieux merci à ma Lièvre :-)
 
 Finalement, un grand merci à tous les auditeurs et toutes les auditrices pour votre présence et votre support, que ce soit pendant ou à l'extérieur de l'événement. Vous êtes tellement importants et importantes pour nous, vous êtes notre motivation.\nUn grand merci à chacun et chacune d'entre vous \u2665.
-'''
-                // ## Prix de participation
-                // Encore une fois cette année, nos animateurs et animatrices ont été généreux pour vous! Plusieurs ont proposé d'offrir de la marchandise de leur chaine aux participants et participantes du marathon. Voici les prix qui ont été offerts :
-                // ${cm.prizes.asMap().keys.map((index) => _prizeToText(index: index, prize: cm.prizes[index])).join('\n')}
-                '''## Crédits
+
+## Prix de participation
+Encore une fois cette année, nos animateurs et animatrices ont été généreux pour vous! Plusieurs ont proposé d'offrir de la marchandise de leur chaine aux participants et participantes du marathon. Voici les prix qui ont été offerts :
+${cm.prizes.asMap().keys.map((index) => _prizeToText(index: index, prize: cm.prizes[index])).join('\n')}
+
+## Crédits
 Site web réalisé par Benjamin Michaud.
 Matériel visuel réalisé par May (Instagram : [@bisousbaveux_](https://www.instagram.com/bisousbaveux_)), ainsi que le magnifique chaudron en aquarelle par Lièvre.
 ''',

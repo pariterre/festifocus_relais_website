@@ -21,13 +21,12 @@ class ConfigManager {
   ///
   final streamersInfo = [
     StreamerInfo(
-      'Tiff4win',
-      description: '''Co-workeuse à mes heures perdues
-
-''',
-      twitchUrl: 'https://twitch.tv/tiff4win',
+      'CarineFeeDesArts',
+      description:
+          '''💅🏻 Créatrice de faux-ongles personnalisés et sur-mesure (press on nails) sous le nom Red Glitter Nails. 🏢 Salariée à temps plein. 🛍️ Conseillère en image. 🧚🏻‍♀️ Live autour du coworking, de la lecture et des ongles. Mots d'ordre : partage et bienveillance.''',
+      twitchUrl: 'https://twitch.tv/carinefeedesarts',
       avatarUrl:
-          'https://static-cdn.jtvnw.net/jtv_user_pictures/a5ad3d8f-60e6-4f4c-a934-a3a12187e6fd-profile_image-300x300.png',
+          'https://static-cdn.jtvnw.net/jtv_user_pictures/3090058d-b256-4fe3-9bdd-6556476ea4a3-profile_image-300x300.jpeg',
     ),
     StreamerInfo(
       'deb_auteur_ice_',
@@ -133,7 +132,22 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
   ];
 
   final prizes = [
-    Prize(title: 'Beaucoup d\'amour', person: 'Pariterre', winner: '@everyone'),
+    Prize(
+      title: '*Portée disparue*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url: 'https://booknode.com/portee_disparue_03535011',
+    ),
+    Prize(
+      title: '*Passion masquée tome 1*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url: 'https://booknode.com/passion_masquee_tome_1_linconnu_03590655',
+    ),
+    Prize(
+      title: '*Captive des serments*, eBook',
+      person: 'Solveig_L_HEVEDER',
+      url:
+          'https://www.wattpad.com/story/385873245-captive-des-serments-les-brumes-rebelles-1',
+    ),
   ];
 
   ///

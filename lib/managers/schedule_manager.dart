@@ -28,12 +28,12 @@ class ScheduleManager {
       length: const Duration(minutes: 45),
     ),
     ScheduleInfo(
-      title: 'Coworking avec Tiff4win',
-      url: 'https://twitch.tv/tiff4win',
+      title: 'Coworking avec CarineFeeDesArts',
+      url: 'https://twitch.tv/carinefeedesarts',
       starting: DateTime(2026, 3, 25, 9, 0),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'Tiff4win')
+          .firstWhere((element) => element.name == 'CarineFeeDesArts')
           .avatarUrl,
     ),
     ScheduleInfo(
