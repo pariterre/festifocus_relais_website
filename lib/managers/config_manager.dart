@@ -32,7 +32,12 @@ class ConfigManager {
     StreamerInfo(
       'deb_auteur_ice_',
       description:
-          '''Debdeb enchanté ! Streameur·euse ascendant lurkeur·euse sur les autres stream en pomodoro ! Ici, c'est live coworking avec comme thèmes principaux : /Le plus souvent ♥ Écriture ♥ Lecture ♥ /Rarement mais a le mérite d'exister ♥ Atelier manuel ♥ Couture ♥ Dessin ♥''',
+          '''Enchanté, je suis Deb, streameur·euse non binaire (pronom iel/ielle/elle) depuis 2 ans, en temps plein sur Twitch depuis octobre 2025, sans pour autant en vivre, mais je l'espère un jour ! 
+Mes lives sont à 90% du coworking, cela me pousse à être plus productif·ve et à progresser dans mes projets, et j'ose espérer vous motiver aussi !
+J’ai écrit mon premier roman grâce aux heures passées à animer des lives, et je suis fier·e de pouvoir dire que je vais le publier en autoédition au début d’avril 2026 !
+Pour les plus curieux·ses, n'hésitez pas à me suivre sur Instagram et TikTok sous le pseudo : @deb_auteur.ice_
+Tout est dispo dans ma bio Twitch si jamais vous passez sur la chaîne des Cerises 🍒
+''',
       twitchUrl: 'https://twitch.tv/deb_auteur_ice_',
       avatarUrl:
           'https://static-cdn.jtvnw.net/jtv_user_pictures/975e2ed8-9e6d-4df2-a6bc-f13b75d363a5-profile_image-300x300.png',
