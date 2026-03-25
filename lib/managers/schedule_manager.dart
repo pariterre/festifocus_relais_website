@@ -58,12 +58,12 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Coworking avec Pariterre',
-      url: 'https://twitch.tv/pariterre',
+      title: 'Coworking avec le_sketch',
+      url: 'https://twitch.tv/le_sketch',
       starting: DateTime(2026, 3, 25, 16, 0),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'Pariterre')
+          .firstWhere((element) => element.name == 'le_sketch')
           .avatarUrl,
     ),
     ScheduleInfo(
@@ -73,12 +73,12 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Coworking avec NutritionSansPression',
-      url: 'https://twitch.tv/nutritionsanspression',
+      title: 'Coworking avec Pariterre',
+      url: 'https://twitch.tv/pariterre',
       starting: DateTime(2026, 3, 25, 19, 30),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'NutritionSansPression')
+          .firstWhere((element) => element.name == 'Pariterre')
           .avatarUrl,
     ),
     ScheduleInfo(
@@ -154,12 +154,12 @@ class ScheduleManager {
       length: const Duration(minutes: 30),
     ),
     ScheduleInfo(
-      title: 'Coworking avec le_sketch',
-      url: 'https://twitch.tv/le_sketch',
+      title: 'Coworking avec NutritionSansPression',
+      url: 'https://twitch.tv/nutritionsanspression',
       starting: DateTime(2026, 3, 26, 17, 0),
       length: const Duration(hours: 3),
       avatarUrl: ConfigManager.instance.streamersInfo
-          .firstWhere((element) => element.name == 'le_sketch')
+          .firstWhere((element) => element.name == 'NutritionSansPression')
           .avatarUrl,
     ),
     ScheduleInfo(
