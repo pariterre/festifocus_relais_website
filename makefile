@@ -8,6 +8,7 @@ FOLDER_TO_KEEP := .well-known cgi-bin resources archives
 # Internal variables
 BASE_FOLDER := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 WEB_BUILD_FOLDER := build/web
+RSYNC_EXCLUDES := $(foreach d,$(FOLDER_TO_KEEP),--exclude='$(d)')
 
 # Make targets
 .PHONY: all list $(PROJECTS)
@@ -33,14 +34,17 @@ festifocus:
 	fi; \
 	rm -rf $${COMPILED_FOLDER}; \
 	mkdir -p $${COMPILED_FOLDER}; \
-	cp -r $(WEB_BUILD_FOLDER)/. $${COMPILED_FOLDER} \
+	cp -r $(WEB_BUILD_FOLDER)/. $${COMPILED_FOLDER}; \
 	# Make sure the authentication are provided (FESTIFOCUS_SSH_USER, FESTIFOCUS_SSH_SERVER, FESTIFOCUS_SSH_FOLDER_MAIN) \
 	if [ -z "$${FESTIFOCUS_SSH_USER}" ] || [ -z "$${FESTIFOCUS_SSH_SERVER}" ] || [ -z "$${FESTIFOCUS_SSH_FOLDER_MAIN}" ]; then \
 		echo "ERROR -- FESTIFOCUS_SSH_USER, FESTIFOCUS_SSH_SERVER, or FESTIFOCUS_SSH_FOLDER_MAIN is not set. Please set them before building."; \
 		exit 1; \
 	fi; \
-	ssh $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER} "cd $${FESTIFOCUS_SSH_FOLDER_MAIN} && find . $(addprefix ! -name ,$(FOLDER_TO_KEEP)) -delete"; \
-	rsync -azvP $(BASE_FOLDER)/$${COMPILED_FOLDER}/ $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER}:$${FESTIFOCUS_SSH_FOLDER_MAIN}; \
+	if [ "$${FESTIFOCUS_SSH_FOLDER_MAIN}" = "/" ]; then \
+		echo "ERROR -- Refusing to deploy to root directory."; \
+		exit 1; \
+	fi; \
+	rsync -azvP --delete $(RSYNC_EXCLUDES) $(BASE_FOLDER)/$${COMPILED_FOLDER}/ $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER}:$${FESTIFOCUS_SSH_FOLDER_MAIN}; \
 	echo "Project built and sent successfully."
 
 festifocus_admin:
@@ -56,13 +60,16 @@ festifocus_admin:
 	fi; \
 	rm -rf $${COMPILED_FOLDER}; \
 	mkdir -p $${COMPILED_FOLDER}; \
-	cp -r $(WEB_BUILD_FOLDER)/. $${COMPILED_FOLDER} \
+	cp -r $(WEB_BUILD_FOLDER)/. $${COMPILED_FOLDER}; \
 	# Make sure the authentication are provided (FESTIFOCUS_SSH_USER, FESTIFOCUS_SSH_SERVER, FESTIFOCUS_SSH_FOLDER_ADMIN) \
 	if [ -z "$${FESTIFOCUS_SSH_USER}" ] || [ -z "$${FESTIFOCUS_SSH_SERVER}" ] || [ -z "$${FESTIFOCUS_SSH_FOLDER_ADMIN}" ]; then \
 		echo "ERROR -- FESTIFOCUS_SSH_USER, FESTIFOCUS_SSH_SERVER, or FESTIFOCUS_SSH_FOLDER_ADMIN is not set. Please set them before building."; \
 		exit 1; \
 	fi; \
-	ssh $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER} "cd $${FESTIFOCUS_SSH_FOLDER_ADMIN} && find . $(addprefix ! -name ,$(FOLDER_TO_KEEP)) -delete"; \
-	rsync -azvP $(BASE_FOLDER)/$${COMPILED_FOLDER}/ $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER}:$${FESTIFOCUS_SSH_FOLDER_ADMIN}; \
+	if [ "$${FESTIFOCUS_SSH_FOLDER_ADMIN}" = "/" ]; then \
+		echo "ERROR -- Refusing to deploy to root directory."; \
+		exit 1; \
+	fi; \
+	rsync -azvP --delete $(RSYNC_EXCLUDES) $(BASE_FOLDER)/$${COMPILED_FOLDER}/ $${FESTIFOCUS_SSH_USER}@$${FESTIFOCUS_SSH_SERVER}:$${FESTIFOCUS_SSH_FOLDER_ADMIN}; \
 	echo "Project built and sent successfully."
 	
