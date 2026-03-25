@@ -21,6 +21,14 @@ class ConfigManager {
   ///
   final streamersInfo = [
     StreamerInfo(
+      'BaleineLunaire',
+      description:
+          '''Salut, moi c’est Baleine 🐳 Graphiste freelance, j’adore parler design, patins à roulettes & tartiflette (mes 3 passions). J'ai codé un overlay 100% interactif pour qu’on bosse ensemble en coworking 💪Tu veux une graphiste colorée & cool qui va comprendre ton projet ? Suis mes liens & écris-moi ✨''',
+      twitchUrl: 'https://twitch.tv/baleinelunaire',
+      avatarUrl:
+          'https://static-cdn.jtvnw.net/jtv_user_pictures/7eb00392-a019-4679-a2e1-70537188eadb-profile_image-300x300.png',
+    ),
+    StreamerInfo(
       'CarineFeeDesArts',
       description:
           '''💅🏻 Créatrice de faux-ongles personnalisés et sur-mesure (press on nails) sous le nom Red Glitter Nails. 🏢 Salariée à temps plein. 🛍️ Conseillère en image. 🧚🏻‍♀️ Live autour du coworking, de la lecture et des ongles. Mots d'ordre : partage et bienveillance.''',
@@ -88,14 +96,6 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
       presentationYoutubeId: 'TJHV5L9P12k',
       avatarUrl:
           'https://static-cdn.jtvnw.net/jtv_user_pictures/d38890eb-b9fc-45da-8152-1b574abfc1a6-profile_image-300x300.png',
-    ),
-    StreamerInfo(
-      'BaleineLunaire',
-      description:
-          '''Salut, moi c’est Baleine 🐳 Graphiste freelance, j’adore parler design, patins à roulettes & tartiflette (mes 3 passions). J'ai codé un overlay 100% interactif pour qu’on bosse ensemble en coworking 💪Tu veux une graphiste colorée & cool qui va comprendre ton projet ? Suis mes liens & écris-moi ✨''',
-      twitchUrl: 'https://twitch.tv/baleinelunaire',
-      avatarUrl:
-          'https://static-cdn.jtvnw.net/jtv_user_pictures/7eb00392-a019-4679-a2e1-70537188eadb-profile_image-300x300.png',
     ),
     StreamerInfo(
       'Solveig_L_HEVEDER',
