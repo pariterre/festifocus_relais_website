@@ -136,26 +136,31 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
       title: '*Portée disparue*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/portee_disparue_03535011',
+      winner: 'Dfalm',
     ),
     Prize(
       title: '*Passion masquée tome 1*, eBook',
       person: 'Solveig_L_HEVEDER',
       url: 'https://booknode.com/passion_masquee_tome_1_linconnu_03590655',
+      winner: 'Louane_Lou',
     ),
     Prize(
       title: '*Captive des serments*, eBook',
       person: 'Solveig_L_HEVEDER',
       url:
           'https://www.wattpad.com/story/385873245-captive-des-serments-les-brumes-rebelles-1',
+      winner: 'furious_teacher',
     ),
     Prize(
       title: '*Chagrine*, pièce de théâtre, eBook',
       person: 'WayceUpenFoya',
       url: 'https://booknode.com/chagrine_03613578',
+      winner: 'Ampple_',
     ),
     Prize(
       title: '*Rideau!*, pièce de théâtre, eBook (à venir)',
       person: 'WayceUpenFoya',
+      winner: 'weeping_angles_54',
     ),
   ];
 
