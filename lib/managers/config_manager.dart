@@ -148,6 +148,15 @@ Livraddict : https://www.livraddict.com/profil/la-loutre-burlesque/
       url:
           'https://www.wattpad.com/story/385873245-captive-des-serments-les-brumes-rebelles-1',
     ),
+    Prize(
+      title: '*Chagrine*, pièce de théâtre, eBook',
+      person: 'WayceUpenFoya',
+      url: 'https://booknode.com/chagrine_03613578',
+    ),
+    Prize(
+      title: '*Rideau!*, pièce de théâtre, eBook (à venir)',
+      person: 'WayceUpenFoya',
+    ),
   ];
 
   ///
